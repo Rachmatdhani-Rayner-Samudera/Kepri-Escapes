@@ -13,7 +13,7 @@
     <form action="{{ route('login-proses') }}" method="POST">
         @csrf
       <div class="input-box">
-        <input name="email" type="text" placeholder="Your email" required>
+        <input name="email" type="email" placeholder="Your email" required>
       </div>
 
       @error('email')
@@ -33,7 +33,7 @@
         <h3>Remember Me?</h3>
       </div>
       <div class="input-box button">
-        <input type="Submit" value="Register Now">
+        <input type="Submit" value="Login">
       </div>
       <div class="text">
         <h3>Don't have an account? <a href="/register">Register Now</a></h3>
@@ -43,6 +43,17 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  @if($massage = Session::get('success'))
+  <script>
+        Swal.fire({
+  title: "{{ $massage }}",
+  icon: "success"
+    });
+  </script>
+  @endif
+
+
   @if($massage = Session::get('error'))
   <script>
         Swal.fire({
@@ -51,5 +62,6 @@
 });
   </script>
   @endif
+
 </body>
 </html>

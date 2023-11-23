@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryDController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use App\Models\Category;
 use App\Models\CategoryD;
 /*
@@ -19,6 +20,14 @@ use App\Models\CategoryD;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'] , function(){
+
+
+
+});
+
 
 Route::get('/dashboard', function () {
     return view('includes.master');
@@ -59,3 +68,10 @@ Route::get('/postcategories/{category:slug}', function(Category $category, Categ
         'destcategory'=> $destcategory
     ]);
 });
+
+
+// <--------- Login && Register Route ---------->
+
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');

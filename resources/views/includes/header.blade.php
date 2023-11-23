@@ -8,7 +8,7 @@
   <ul class="ul">
     <li><a href="/home">Home</a></li>
     <li><a href="/about">About</a></li>
-   
+
     <div class="btn-group">
     <li>
       <a href="/destination">
@@ -18,23 +18,23 @@
       </a>
       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
 
-        @foreach ($destcategory as $categoryItem) 
+        @foreach ($destcategory as $categoryItem)
         <li><a class="dropdown-item" value="{{ $categoryItem->slug}}" href="{{$categoryItem->slug}}">{{ $categoryItem->category_name}}</a></li>
         @endforeach
 
-        
+
       </ul>
     </li>
   </div>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
-  
+
   <div>
-  <a href="#" class="login">Login</a>
-  <a href="#" class="signup">Signup</a>
+  <a href="/login" class="login">Login</a>
+  <a href="/register" class="signup">Signup</a>
   </div>
-  
+
   <div class="menu-toggle">
     <input type="checkbox"/>
     <span></span>
@@ -44,7 +44,7 @@
   </div>
   </nav>
   {{-- <div class="nav container">
-  {{-- logo 
+  {{-- logo
   <a href="#" class="logo">Kepri<span>Escapes</span></a>
   <a href="#" class="login">Login</a>
   {{-- login btn --
