@@ -16,7 +16,7 @@
       </a>
       <a href="/destination" class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"  id="defaultDropdown" data-bs-auto-close="true" aria-expanded="false">
       </a>
-      <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
+      <ul class="navsi dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
 
         @foreach ($destcategory as $categoryItem) 
         <li><a class="dropdown-item" value="{{ $categoryItem->slug}}" href="/destination/destcategories/{{$categoryItem->slug}}">{{ $categoryItem->category_name}}</a></li>
@@ -31,8 +31,36 @@
   </ul>
   
   <div>
-  <a href="#" class="login">Login</a>
-  <a href="#" class="signup">Signup</a>
+    <li class="nav-item dropdown pe-3">
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+          data-bs-toggle="dropdown">
+          <span class="account-title d-none d-md-block dropdown-toggle ps-2">Kepri Escapes</span>
+      </a>
+      <ul class="kunsi dropdown-menu dropdown-menu-dark dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+              <h6>Kepri Escapes</h6>
+              <span>Admin</span>
+          </li>
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+          <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                  <i class="bi bi-person"></i>
+                  <span>My Profile</span>
+              </a>
+          </li>
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+          <li>
+              <a class="dropdown-item d-flex align-items-center" href="#">
+                  <i class="bi bi-box-arrow-right"></i>
+                  <span>Sign Out</span>
+              </a>
+          </li>
+      </ul>
+  </li>
   </div>
   
   <div class="menu-toggle">

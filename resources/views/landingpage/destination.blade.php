@@ -115,7 +115,7 @@
 </head>
 <body>
   {{-- header --}}
- @include('includes.header')
+ @include('includes.loginheader')
 
   {{-- home --}}
   <section class="home" id="home">

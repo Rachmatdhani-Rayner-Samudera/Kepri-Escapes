@@ -7,11 +7,12 @@
     <title>Kepri Escapes</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
-    <!-- Favicons -->
-    <link rel="icon" href="{{ asset('assets/img/favicon.png')}}">
-    <link rel="apple-touch-icon" href="{{ asset('assets/img/apple-touch-icon.png')}}">
 
-    <link rel="stylesheet" href="{{ asset('assets/plugin/css/all.css') }}" />
+    <!-- Favicons -->
+    <link rel="icon" href="{{ asset('assets/img/kepri-escapes-logo.png')}}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/img/kepri-escapes-logo.png')}}">
+
+    <link rel="stylesheet" href="{{ asset('assets/plugin/css/all.css') }}"/>
     <!-- Google Fonts -->
     <link href="https://fonts.gstatic.com" rel="preconnect">
     <link

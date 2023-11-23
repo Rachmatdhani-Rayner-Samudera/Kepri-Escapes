@@ -194,6 +194,38 @@ header.shadow{
   box-shadow: 0 1px 4px hsl(0 4% 14% / 10%);
   transition: 0.4s;
 }
+.navsi{
+  transition: 0.3s;
+  transform: translate3d(80px,0,0);
+}
+.kunsi{
+  transition: 0.3s;
+  transform: translate3d(-15px,0,0);
+}
+
+.account-title{
+  color: white;
+  transition: 0.3s;
+}
+
+.account-title:hover{
+    color: rgb(255, 255, 255);
+    background: var(--second-color);
+    border-radius: 100px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+header.shadow .account-title{
+  color: white;
+}
+header.shadow .account-title:hover{
+  position: relative;
+  color: black;
+  background: white ;
+  -webkit-animation: floatBubble 2s normal ease-out;
+  animation: floatBubble 2s normal ease-out;
+  transition: 0.3s;
+}
 header.shadow .logo{
   color: white;
 }
