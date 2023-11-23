@@ -7,6 +7,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryDController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Models\Category;
 use App\Models\CategoryD;
 /*
@@ -20,9 +22,15 @@ use App\Models\CategoryD;
 |
 */
 
+
+
+// Route::get('/login',[AuthController::class, 'login'])->name('login');
+
+
 Route::get('/dashboard', function () {
     return view('includes.master');
-});  
+})->middleware('auth');
+
 
 // <--------- Auto Slug Route ---------->
 Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
@@ -68,3 +76,16 @@ Route::get('/destination/destcategories/{category:slug}', function(CategoryD $ca
         'destcategory'=> $destcategory
     ]);
 });
+
+
+
+// <--------- Login Route ---------->
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// <--------- Register Route ---------->
+Route::get('/register', [LoginController::class, 'register'])->name('register');
+Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
+

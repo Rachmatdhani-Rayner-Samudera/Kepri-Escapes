@@ -12,7 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    
+
   {{-- Box Icons --}}
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 
@@ -43,7 +43,12 @@
 </head>
 <body>
   {{-- header --}}
- @include('includes.header')
+  @auth
+  @include('includes.loginheader')
+      @else
+      @include('includes.header')
+  @endauth
+
 
   {{-- home --}}
   <section class="home" id="home">
@@ -52,28 +57,28 @@
     </video>
     <div class="overlay"></div>
     <div class="home-text container">
-  
+
       <span class="home-subtitle animated animatedFadeInUp fadeInUp">Discover the paradise of</span>
       <h2 class="home-title animated animatedFadeInUp fadeInUp">Kepulauan Riau</h2>
     </div>
   </section>
 
 
-  
-  
+
+
 
         <section class="post container animated animatedFadeInUp fadeInUp">
-          
 
-        
 
-            
+
+
+
         </section>
 
 
   {{-- Footer --}}
   @include('includes.footer')
-    
+
 
 
 

@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function login_proses(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
@@ -27,17 +27,16 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($credentials)) {
-            return redirect('/dashboard')->with('success', 'Welcome to dashboard admin');
+            return redirect('/dashboard')->with('success', 'Welcome to the admin dashboard');
         } else {
-            return redirect()->route('login')->with('error', 'Your email and password are invalid!');
+            return redirect()->route('login')->with('error', 'Email or password is incorrect.');
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('login')->with('success', 'Logout successfull');
-
+        return redirect()->route('login')->with('success', 'Logout successful');
     }
 
     public function register()
@@ -45,13 +44,22 @@ class LoginController extends Controller
         return view('auth.register');
     }
 
-        public function register_proses(Request $request)
+    public function register_proses(Request $request)
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users|email',
-            'phone' => 'required|numeric|min:10',
+            'email' => 'required|email|unique:users',
+            'phone' => [
+                'required',
+                'numeric',
+                'regex:/^08[0-9]{8,}$/',
+                'unique:users',
+            ],
             'password' => 'required|min:8|confirmed',
+        ], [
+            'email.unique' => 'The email address is already in use.',
+            'phone.regex' => 'The phone number must start with 08 and have at least 10 digits.',
+            'phone.unique' => 'The phone number is already in use.',
         ]);
 
         $data = [
@@ -61,18 +69,8 @@ class LoginController extends Controller
             'password' => Hash::make($request->password),
         ];
 
-        User::create($data);
+        $user = User::create($data);
 
-        $login = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-
-        if (Auth::attempt($login)) {
-            return redirect('/')->with('success', 'Welcome to dashboard admin');
-        } else {
-            return redirect()->route('register')->with('success', 'Your data is not required, try again!');
-        }
+        return redirect()->route('login')->with('success', 'Account created successfully! Please log in.');
     }
-
 }

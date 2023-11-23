@@ -12,7 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    
+
   {{-- Box Icons --}}
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 
@@ -28,14 +28,14 @@
       color: #000000;
       display: block;
       overflow: hidden;
-      font-weight: 500; 
+      font-weight: 500;
       text-align: end
 
     }
     .price-title{
       text-decoration: none;
       font-size: 1.3rem;
-      font-weight: 600; 
+      font-weight: 600;
       display: block;
       color: #4582E8;
       text-align: end;
@@ -74,7 +74,7 @@
     .pax{
       text-decoration: none;
       font-size: 0.8rem;
-      font-weight: 500; 
+      font-weight: 500;
       display: block;
       color: #4582E8;
       text-align: end;
@@ -106,7 +106,7 @@
       color: #000000;
       display: block;
       overflow: hidden;
-      font-weight: 500; 
+      font-weight: 500;
       margin-left: -5px;
       text-align: end
     }
@@ -115,13 +115,13 @@
 </head>
 <body>
   {{-- header --}}
- @include('includes.loginheader')
+ @include('includes.header')
 
   {{-- home --}}
   <section class="home" id="home">
     <link rel="stylesheet" href="{{asset('assets/img/blog.jpg')}}">
     <div class="home-text container">
-  
+
       <h2 class="home-title animated animatedFadeInUp fadeInUp">Destination</h2>
       <span class="home-subtitle animated animatedFadeInUp fadeInUp">Treat yourself with the paradise of the Kepulauan Riau</span>
     </div>
@@ -146,7 +146,7 @@
                 <a href="/destination/{{ $packageItem->slug }}" class="post-title">
                   {{ $packageItem->package_name }}
                 </a>
-                
+
                 <div class="profile mt-3">
                   <img src="{{ asset('assets/img/clock.png') }}" alt="" class="icon-img">
                   <span class="profile-name">{{ $packageItem->time }}</span>
@@ -178,23 +178,23 @@
               </a>
               </div>
             </div>
-          
+
           </div>
         </div>
         </div>
-        
-      @endforeach
-        
-      
-    
 
-        
+      @endforeach
+
+
+
+
+
     </section>
 
 
   {{-- Footer --}}
   @include('includes.footer')
-    
+
 
 
 

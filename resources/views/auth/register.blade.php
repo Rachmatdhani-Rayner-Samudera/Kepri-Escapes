@@ -56,20 +56,20 @@
         <input type="Submit" value="Register Now">
       </div>
       <div class="text">
-        <h3>Don't have an account? <a href="/login">Register Now</a></h3>
+        <h3>I have an account <a href="/login">Login</a></h3>
       </div>
     </form>
   </div>
 
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  @if($massage = Session::get('sucess'))
-  <script>
-        Swal.fire({
-  title: "{{ $massage }}",
-  icon: "success"
-});
-  </script>
+  @if($message = Session::get('success'))
+      <script>
+          Swal.fire({
+              title: "{{ $message }}",
+              icon: "success"
+          });
+      </script>
   @endif
 </body>
 </html>

@@ -8,7 +8,7 @@
   <ul class="ul">
     <li><a href="/">Home</a></li>
     <li><a href="/about">About</a></li>
-   
+
     <div class="btn-group">
     <li>
       <a href="/destination">
@@ -18,51 +18,42 @@
       </a>
       <ul class="navsi dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
 
-        @foreach ($destcategory as $categoryItem) 
+        @foreach ($destcategory as $categoryItem)
         <li><a class="dropdown-item" value="{{ $categoryItem->slug}}" href="/destination/destcategories/{{$categoryItem->slug}}">{{ $categoryItem->category_name}}</a></li>
         @endforeach
 
-        
+
       </ul>
     </li>
   </div>
     <li><a href="/blog">Blog</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
-  
+
   <div>
     <li class="nav-item dropdown pe-3">
-      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#"
+      <a class="nav-link nav-profile d-flex align-items-center pe-0" href="/"
           data-bs-toggle="dropdown">
-          <span class="account-title d-none d-md-block dropdown-toggle ps-2">Kepri Escapes</span>
+          <span class="account-title d-none d-md-block dropdown-toggle ps-2">{{ auth()->user()->name }}</span>
       </a>
       <ul class="kunsi dropdown-menu dropdown-menu-dark dropdown-menu-end dropdown-menu-arrow profile">
-          <li class="dropdown-header">
-              <h6>Kepri Escapes</h6>
-              <span>Admin</span>
-          </li>
-          <li>
-              <hr class="dropdown-divider">
-          </li>
-          <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                  <i class="bi bi-person"></i>
-                  <span>My Profile</span>
-              </a>
-          </li>
-          <li>
-              <hr class="dropdown-divider">
-          </li>
-          <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                  <i class="bi bi-box-arrow-right"></i>
-                  <span>Sign Out</span>
-              </a>
+        <li>
+              <a class="dropdown-item d-flex align-items-center" href="/dashboard">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Dashboard</span>
+            </a>
+            <li>
+                <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
+                    <i class="bi bi-box-arrow-right"></i>
+                    <span>Sign Out</span>
+                </a>
+            </li>
+        </li>
           </li>
       </ul>
   </li>
   </div>
-  
+
   <div class="menu-toggle">
     <input type="checkbox"/>
     <span></span>
@@ -72,7 +63,7 @@
   </div>
   </nav>
   {{-- <div class="nav container">
-  {{-- logo 
+  {{-- logo
   <a href="#" class="logo">Kepri<span>Escapes</span></a>
   <a href="#" class="login">Login</a>
   {{-- login btn --
