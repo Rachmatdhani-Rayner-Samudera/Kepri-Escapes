@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .btn-info {
-    --bs-btn-color: #fff;
+    --bs-btn-color: #fff; 
     }
     .btn-info:hover {
     --bs-btn-color: #fff;
@@ -33,7 +33,7 @@
                           </div>
                           <!-- Table -->
                           <div class="table-responsive">
-
+                              
                               <!-- Table -->
                               <table class="table" id="data">
                                   <thead>
@@ -63,7 +63,7 @@
                                           {{-- <td>{{ $postItem->slug}}</td> --}}
                                           {{-- <td>{{ $postItem->post_picture}}</td> --}}
                                           <td>
-
+                                            
                                               <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#ViewModal{{$postItem->id}}">View</button>
                                               <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalEdita-{{$postItem->id}}">Edit</button>
                                                   <form action="/dashboard/post/{{ $postItem->slug }}" method="POST" class="d-inline">
@@ -74,7 +74,7 @@
                                           </td>
                                       </tr>
                                       @endforeach
-
+                                    
                                       <!-- Add other rows as needed -->
                                   </tbody>
                               </table>
@@ -92,12 +92,12 @@
 <div id="ModalAdd" class="modal fade" tabindex="-1" data-bs-backdrop="static">
   <div class="modal-dialog modal-dialog-centered modal-lg">
       <div class="modal-content">
-
+       
           <div class="modal-header">
               <h5 class="modal-title">New Post</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-
+         
           <div class="modal-body">
                   <div class="mb-6">
                     <label for="creator" class="form-label">Creator</label>
@@ -106,7 +106,7 @@
                   <div class="mb-6 mt-3">
                     <label class="form-label">Category Name</label>
                     <div class="mb-6">
-                      <select for="category" required id="category" name="id_category" class="form-control selectric">
+                      <select for="category" required id="category" name="category_id" class="form-control selectric">
                         <option value="" selected disabled>Choose Category</option>
                         @foreach ($category as $data)
                             <option value="{{ $data->id }}">{{ $data->category_name}}</option>
@@ -125,16 +125,16 @@
 
                     <div class=" mt-3">
                     <label for="post_content" class="form-label">Post Content</label>
-
+                      
                         <div>
-
+                          
                           <input id="post_content" type="hidden" name="post_content" required>
                           <trix-editor input="post_content"></trix-editor>
-
+                         
                         </div>
-
+                       
                     </div>
-
+                
                     {{-- <div class="mb-6 mt-3">
                       <label class="form-label"> Post Picture</label>
                       <input name="post_picture" class="form-control" type="file" id="post_picture" required>
@@ -144,9 +144,9 @@
                       <label class="form-label"> Post Picture</label>
                       <img class="img-preview img-fluid mb-3 col-sm-5 d-block">
                       <input name="post_picture" class="form-control" type="file" id="post_picture" onchange="previewImage()" required>
-
+                      
                     </div>
-
+                 
             </div>
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -175,7 +175,7 @@
             </div>
             <div class="modal-body">
                   <div class="mb-3">
-                    <label class="form-label">Post ID: {{ $postItem->id }}</label>
+                    <label class="form-label">Post ID: {{ $postItem->id }}</label> 
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Creator: {{ $postItem->creator }}</label>
@@ -217,12 +217,12 @@
   <div id="ModalEdita-{{$postItemat->id}}" class="modal fade" tabindex="-1" data-bs-backdrop="static">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
-
+         
             <div class="modal-header">
                 <h5 class="modal-title">Edit Post</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-
+           
             <div class="modal-body">
                     <div class="mb-6">
                       <label for="creator" class="form-label">Creator</label>
@@ -231,11 +231,11 @@
                     <div class="mb-6 mt-3">
                       <label class="form-label">Category Name</label>
                       <div class="mb-6">
-                        <select for="category" required id="category" name="id_category" class="form-control selectric">
+                        <select for="category" required id="category" name="category_id" class="form-control selectric">
                           <option value="" selected disabled>Choose Category</option>
 
-                          @foreach ($category as $categoryItem)
-                            @if ($postItemat->id_category == $categoryItem->id)
+                          @foreach ($category as $categoryItem) 
+                            @if ($postItemat->category_id == $categoryItem->id)
                                 <option value="{{ $categoryItem->id }}" selected>{{ $categoryItem->category_name}}</option>
                                 @else
                                 <option value="{{ $categoryItem->id }}">{{ $categoryItem->category_name}}</option>
@@ -253,7 +253,7 @@
                         <label for="slug" class="form-label">Slug</label>
                         <input name="slug" type="text" class="form-control slug" id="slug" value="{{old('slug', $postItemat->slug)}}">
                       </div>
-
+  
                       <div class="mt-3">
                         <label for="post_content" class="form-label">Post Content</label>
                         <div>
@@ -261,8 +261,8 @@
                             <trix-editor input="post_content_{{$postItemat->slug}}"></trix-editor>
                         </div>
                     </div>
-
-
+                  
+                  
                       <div class="mb-6 mt-3">
                         <label class="form-label"> Post Picture</label>
                         <input type="hidden" name="oldImage" value="{{ $postItemat->post_picture }}">
@@ -272,11 +272,11 @@
                       @else
                       <img class="img-preview img-fluid mb-3 col-sm-5 d-block">
                       @endif
-
+                       
                         <input name="post_picture" class="form-control" type="file" id="post_picture" onchange="previewImage()">
-
+                        
                       </div>
-
+                   
               </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -298,7 +298,7 @@
   //   fetch('/dashboard/post/autoSlug?post_title=' + post_title.value)
   //   .then(response => response.json())
   //   .then(data => slug.value = data.slug)
-  // });
+  // }); 
 
 //   document.body.addEventListener('change', function (event) {
 //     if (event.target.classList.contains('post-title')) {
@@ -338,16 +338,6 @@ document.body.addEventListener('change', function (event) {
 });
 
 
-// $('#ModalEdita-{{$postItemat->id}}').on('shown.bs.modal', function () {
-//   const post_title = document.querySelector('#post_title');
-//   const slug = document.querySelector('#slug');
-
-//   post_title.addEventListener('change', function () {
-//     fetch('/dashboard/post/autoSlug?post_title=' + post_title.value)
-//       .then(response => response.json())
-//       .then(data => slug.value = data.slug);
-//   });
-// });
 
 
   document.addEventListener('trix-file-accept', function(e){
@@ -382,7 +372,7 @@ document.body.addEventListener('change', function (event) {
     }
   }
 
-</script>
+</script>  
 
 </main>
 

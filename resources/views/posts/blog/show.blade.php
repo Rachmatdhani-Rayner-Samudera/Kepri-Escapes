@@ -30,7 +30,7 @@
     <div class="header-content post-container">
       {{-- back to home --}}
       <a href="/blog" class="back-home">Back to blog</a>
-      <a href="#" class="logo"><span>{{$detail->Category->category_name }}</span></a>
+      <a href="/postcategories/{{$detail->Category->slug}}" class="logo"><span>{{$detail->Category->category_name }}</span></a>
       {{-- title --}}
       <h1 class="header-title">{{$detail->post_title}}</h1>
       {{-- post picture --}}

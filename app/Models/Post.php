@@ -12,10 +12,11 @@ class Post extends Model
     use HasFactory,Sluggable;
     protected $primaryKey = 'id';
     protected $table = 'tb_post';
-    protected $fillable = ['creator', 'id_category', 'post_title', 'post_content', 'slug', 'post_picture'];
+    protected $fillable = ['creator', 'category_id', 'post_title', 'post_content', 'slug', 'post_picture'];
 
     public function Category(){
-        return $this->belongsTo(Category::class, 'id_category');
+        return $this->belongsTo(Category::class, 'category_id');
+        // return $this->belongsTo(Category::class, 'id_category');
     }
 
     public function Sluggable(): array
@@ -38,8 +39,8 @@ class Post extends Model
         foreach ($posts as $p) {
             if($p["slug"] === $slug){
                 $post = $p;
-            }
+            } 
     }
-
+    
 }
 }

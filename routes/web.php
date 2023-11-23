@@ -6,9 +6,9 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryDController;
 use App\Http\Controllers\DestinationController;
-use App\Http\Controllers\LoginController;
-
-
+use App\Http\Controllers\HomeController;
+use App\Models\Category;
+use App\Models\CategoryD;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,56 +20,42 @@ use App\Http\Controllers\LoginController;
 |
 */
 
-Route::get('/', function () {
-    return view('landingpage.home');
-});
-
-
-Route::get('/home', function () {
-    return view('landingpage.home');
-});
-
-
-Route::get('/about', function () {
-    return view('landingpage.about');
-});
-
-
-Route::get('/destination', function () {
-    return view('destination.index');
-});
-
-
-Route::get('/contact', function () {
-    return view('landingpage.contact');
-});
-
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('/register', [LoginController::class, 'register'])->name('register');
-Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
-Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
-
-
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin'] , function(){
-
 Route::get('/dashboard', function () {
     return view('includes.master');
 });
 
-Route::get('/blog/show', function () {
-    return view('posts.blog.show');
-});
-
-
+// <--------- Auto Slug Route ---------->
 Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
-Route::get('/dashboard/post/autoSlugEdit/{slug}', [PostController::class, 'autoSlugEdit']);
-Route::get('/editaja', [PostController::class, 'edit']);
+Route::get('/dashboard/postcategory/autoSlug', [CategoryController::class, 'autoSlug']);
+Route::get('/dashboard/destination/autoSlug', [DestinationController::class, 'autoSlug']);
+
+// <--------- Core Route ---------->
 Route::resource('/dashboard/post',PostController::class);
+
 Route::resource('/dashboard/destination',DestinationController::class);
+
 Route::resource('/dashboard/destcategory',CategoryDController::class);
+
 Route::resource('/dashboard/postcategory',CategoryController::class);
+
+
+
+// <--------- Landing Page Route ---------->
+Route::get('/', [HomeController::class, 'home']);
+Route::get('/about', [HomeController::class, 'about']);
 Route::get('/blog', [BlogController::class, 'index' ]);
+Route::get('/destination', [HomeController::class, 'destination']);
+Route::get('/contact', [HomeController::class, 'contact']);
+
+
+
+// <--------- Single Post Route ---------->
 Route::get('/blog/{post:slug}', [BlogController::class, 'show' ]);
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/postcategories/{category:slug}', function(Category $category, CategoryD $destcategory){
+    $destcategory = categoryD::all();
+    return view('posts/categoryp/show', [
+        'category_name' => $category->category_name,
+        'posts' => $category->Post,
+        'destcategory'=> $destcategory
+    ]);
 });

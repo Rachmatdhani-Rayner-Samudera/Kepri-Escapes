@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\CategoryD;
 class BlogController extends Controller
 {
     /**
@@ -12,13 +13,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        // return view('posts.blog.index', [
-        //     "post_title" => "Posts",
-        //     "posts" => Post::all()
-        // ]);
-        
+        $destcategory=CategoryD::all();
         $posts=Post::all();
-        return view('posts.blog.index',compact('posts'))->with([
+        return view('posts.blog.index',compact('posts','destcategory'))->with([
         'category'=>Category::all()]);
     }
 
@@ -42,11 +39,14 @@ class BlogController extends Controller
      * Display the specified resource.
      */
     public function show($slug)
-    {
-       $detail = Post::where('slug', $slug)->first();
-       return view('posts.blog.show', [
-        'detail' => $detail
-       ]);
+    {    
+        $destcategory = CategoryD::all();
+        $detail = Post::where('slug', $slug)->first();
+
+        return view('posts.blog.show', [
+            'detail' => $detail,
+            'destcategory' => $destcategory,
+        ]);
     }
 
     /**

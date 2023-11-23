@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tb_post', function (Blueprint $table) {
             $table->id();
             $table->string('creator');
-            $table->string('id_category');
+            $table->foreignId('category_id');
             $table->string('post_title');
             $table->text ('post_content');
             $table->string('slug')->nullable();

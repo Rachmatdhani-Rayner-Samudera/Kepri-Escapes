@@ -26,21 +26,23 @@ class PostController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    {    $post = Post::all();
+    {   
+        $post = Post::all();
         $category = Category::all();
-        return view("post.create", compact('category','post')); 
+        return view("posts.index", compact('category','post')); 
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    { try{
+    { 
+        try{
             // dd($request->all());
                 // Validasi data
                 $validatedData = $request->validate([
                     "creator" => 'required',
-                    "id_category" => 'required',
+                    "category_id" => 'required',
                     "post_title" => 'required|unique:tb_post',
                     "post_content" => 'required',
                     "post_picture" => 'image',
@@ -85,7 +87,7 @@ class PostController extends Controller
     public function show($slug)
     {
         $detail = Post::where('slug', $slug)->first();
-       return view('posts.blog.show', [
+        return view('posts.blog.show', [
         'detail' => $detail
        ]);
     }
@@ -110,7 +112,7 @@ class PostController extends Controller
     // Tentukan aturan validasi
     $rules = [
         "creator" => 'required',
-        "id_category" => 'required',
+        "category_id" => 'required',
         "post_title" => 'required|unique:tb_post,post_title,'.$post->id,
         "post_content" => 'required',
         "post_picture" => 'image',

@@ -89,7 +89,11 @@
           <div class="modal-body">
                   <div class="mb-6">
                     <label for="category_name" class="form-label">Category Name</label>
-                    <input name="category_name" type="text" class="form-control" id="category_name" required>
+                    <input name="category_name" type="text" class="form-control category-name" id="category_name" required>
+                  </div>
+                  <div class="mb-6 mt-3">
+                    <label for="slug" class="form-label">Slug</label>
+                    <input name="slug" type="text" class="form-control slug" id="slug">
                   </div>
                  
             </div>
@@ -119,7 +123,11 @@
         <div class="modal-body">
           <div class="mb-6">
             <label for="category_name" class="form-label">Category Name</label>
-            <input name="category_name" type="text" class="form-control" id="category_name" value="{{$categoryItem->category_name}}" required>
+            <input name="category_name" type="text" class="form-control category-name" id="category_name" value="{{$categoryItem->category_name}}" required>
+          </div>
+          <div class="mb-6">
+            <label for="slug" class="form-label">Slug</label>
+            <input name="slug" type="text" class="form-control slug" id="slug" value="{{old('slug', $categoryItem->slug)}}">
           </div>       
         </div>
           <div class="modal-footer">
@@ -132,7 +140,31 @@
 </form>
 @endforeach
  
-  
+<script>
+  document.body.addEventListener('change', function (event) {
+    if (event.target.classList.contains('category-name')) {
+        const category_name = event.target;
+        const slug = category_name.closest('.modal').querySelector('.slug');
+
+        // Check if the slug input is not readonly before making the fetch request
+        if (!slug.readOnly) {
+            fetch('/dashboard/postcategory/autoSlug?category_name=' + encodeURIComponent(category_name.value))
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    slug.value = data.slug;
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+        }
+    }
+});
+</script>  
 
 
 

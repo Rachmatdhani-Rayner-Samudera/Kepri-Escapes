@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tb_categoryd', function (Blueprint $table) {
+        Schema::create('tb_destination', function (Blueprint $table) {
             $table->id();
-            $table->string('category_name')->unique();
-            $table->string('slug')->unique();
+            $table->string('package_name');
+            $table->foreignId('categoryd_id');
+            $table->integer('package_price');
+            $table->text ('package_content');
+            $table->string('slug')->nullable();
+            $table->string('package_picture');
             $table->timestamps();
         });
     }
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tb_categoryd');
+        Schema::dropIfExists('tb_destination');
     }
 };
