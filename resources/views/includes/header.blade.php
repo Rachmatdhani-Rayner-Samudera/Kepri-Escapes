@@ -12,7 +12,7 @@
       <a href="/destination" class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"  id="defaultDropdown" data-bs-auto-close="true" aria-expanded="false">
         Destination
       </a>
-      
+
       <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
 
         <li><a class="dropdown-item" href="#">Kontol</a></li>
@@ -22,12 +22,12 @@
     <li><a href="/blog">Blog</a></li>
     <li><a href="/contact">Contact</a></li>
   </ul>
-  
+
   <div>
-  <a href="#" class="login">Login</a>
-  <a href="#" class="signup">Signup</a>
+  <a href="/login" class="login">Login</a>
+  <a href="/register" class="signup">Register</a>
   </div>
-  
+
   <div class="menu-toggle">
     <input type="checkbox"/>
     <span></span>
@@ -37,7 +37,7 @@
   </div>
   </nav>
   {{-- <div class="nav container">
-  {{-- logo 
+  {{-- logo
   <a href="#" class="logo">Kepri<span>Escapes</span></a>
   <a href="#" class="login">Login</a>
   {{-- login btn --

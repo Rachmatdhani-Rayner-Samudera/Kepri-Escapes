@@ -11,7 +11,7 @@ class Post extends Model
 {
     use HasFactory,Sluggable;
     protected $primaryKey = 'id';
-protected $table = 'tb_post';
+    protected $table = 'tb_post';
     protected $fillable = ['creator', 'id_category', 'post_title', 'post_content', 'slug', 'post_picture'];
 
     public function Category(){
@@ -38,8 +38,8 @@ protected $table = 'tb_post';
         foreach ($posts as $p) {
             if($p["slug"] === $slug){
                 $post = $p;
-            } 
+            }
     }
-    
+
 }
 }
