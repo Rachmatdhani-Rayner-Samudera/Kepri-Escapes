@@ -12,11 +12,10 @@ class Destination extends Model
     use HasFactory,Sluggable;
     protected $primaryKey = 'id';
     protected $table = 'tb_destination';
-    protected $fillable = ['package_name', 'categoryd_id', 'package_price', 'package_content', 'slug', 'package_picture'];
+    protected $fillable = ['package_name', 'category_d_id', 'package_price', 'time', 'package_content', 'slug', 'package_picture'];
 
     public function Categoryd(){
-        return $this->belongsTo(CategoryD::class, 'categoryd_id');
-        // return $this->belongsTo(Category::class, 'id_category');
+        return $this->belongsTo(CategoryD::class, 'category_d_id');
     }
 
     public function Sluggable(): array

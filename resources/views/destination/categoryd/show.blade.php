@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Destination - Kepri Escapes</title>
+  <title>Destination Category - {{ $category_name }} </title>
 
   {{-- Link to CSS --}}
   <link rel="stylesheet" href="{{ asset('assets/css/blog.css')}}">
@@ -15,7 +15,6 @@
     
   {{-- Box Icons --}}
   <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-
   <style>
     .home{
       background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/destination.jpg');
@@ -111,9 +110,9 @@
       text-align: end
     }
   </style>
-
 </head>
 <body>
+
   {{-- header --}}
  @include('includes.header')
 
@@ -122,12 +121,15 @@
     <link rel="stylesheet" href="{{asset('assets/img/blog.jpg')}}">
     <div class="home-text container">
   
-      <h2 class="home-title animated animatedFadeInUp fadeInUp">Destination</h2>
-      <span class="home-subtitle animated animatedFadeInUp fadeInUp">Treat yourself with the paradise of the Kepulauan Riau</span>
+      <h2 class="home-title animated animatedFadeInUp fadeInUp">{{ $category_name }}</h2>
+      <span class="home-subtitle animated animatedFadeInUp fadeInUp">See the details about package in {{ $category_name }}</span>
     </div>
   </section>
-    <section class="post container animated animatedFadeInUp fadeInUp">
-      @foreach ($destination as $packageItem)
+  {{-- Posts --}}
+  
+      <section class="post container animated animatedFadeInUp fadeInUp">
+        
+        @foreach ($destination as $packageItem)
       @php
       $picture = str_replace('public', 'storage', $packageItem->package_picture);
       $review = random_int(100, 2000);
@@ -163,7 +165,7 @@
               </div>
             </div>
             <div class="row">
-              <div class="col-8 rating mt-4">
+              <div class="col-9 rating mt-4">
                 <img src="{{ asset('assets/img/star.png') }}" alt="" class="star">
                 <img src="{{ asset('assets/img/star.png') }}" alt="" class="star">
                 <img src="{{ asset('assets/img/star.png') }}" alt="" class="star">
@@ -184,12 +186,7 @@
         </div>
         
       @endforeach
-        
-      
-    
-
-        
-    </section>
+      </section>
 
 
   {{-- Footer --}}
@@ -211,6 +208,4 @@
   {{-- link to JS --}}
   <script src="{{asset('assets/js/blog.js')}}"></script>
 </body>
-
-
 </html>

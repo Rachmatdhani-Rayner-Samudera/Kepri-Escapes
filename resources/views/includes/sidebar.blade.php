@@ -17,7 +17,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/home">
+                <a class="nav-link" href="/">
                     <i class="bi bi-grid"></i>
                     <span>Home</span>
                 </a>

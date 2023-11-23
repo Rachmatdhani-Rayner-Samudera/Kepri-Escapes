@@ -104,7 +104,7 @@
                   <div class="mb-6 mt-3">
                     <label class="form-label">Category Name</label>
                     <div class="mb-6">
-                      <select for="categoryd" required id="categoryd" name="categoryd_id" class="form-control selectric">
+                      <select for="categoryd" required id="categoryd" name="category_d_id" class="form-control selectric">
                         <option value="" selected disabled>Choose Category</option>
                         @foreach ($categoryd as $data)
                             <option value="{{ $data->id }}">{{ $data->category_name}}</option>
@@ -115,6 +115,10 @@
                     <div class="mb-6 mt-3">
                       <label for="package_price" class="form-label">Package Price</label>
                       <input name="package_price" type="text" class="form-control" id="package_price" required>
+                    </div>
+                    <div class="mb-6 mt-3">
+                      <label for="time" class="form-label">Time</label>
+                      <input name="time" type="text" class="form-control" id="time" required>
                     </div>
                     <div class=" mt-3">
                     <label for="package_content" class="form-label">Package Content</label>
@@ -174,6 +178,9 @@
                     <label class="form-label">Package Price: {{ $packageItem->package_price }}</label>
                 </div>
                 <div class="mb-3">
+                    <label class="form-label">Time: {{ $packageItem->time }}</label>
+                </div>
+                <div class="mb-3">
                     <label class="form-label">Package Content: {!! $packageItem->package_content !!}</label>
                   </div>
                 <div class="mb-3">
@@ -203,7 +210,7 @@
         <div class="modal-content">
          
             <div class="modal-header">
-                <h5 class="modal-title">Edit Post</h5>
+                <h5 class="modal-title">Edit Package</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
            
@@ -219,11 +226,11 @@
                     <div class="mb-6 mt-3">
                       <label class="form-label">Category Name</label>
                       <div class="mb-6">
-                        <select for="categoryd" required id="categoryd" name="categoryd_id" class="form-control selectric">
+                        <select for="categoryd" required id="categoryd" name="category_d_id" class="form-control selectric">
                           <option value="" selected disabled>Choose Category</option>
 
                           @foreach ($categoryd as $categoryItem) 
-                            @if ($packageItem->categoryd_id == $categoryItem->id)
+                            @if ($packageItem->category_d_id == $categoryItem->id)
                                 <option value="{{ $categoryItem->id }}" selected>{{ $categoryItem->category_name}}</option>
                                 @else
                                 <option value="{{ $categoryItem->id }}">{{ $categoryItem->category_name}}</option>
@@ -236,6 +243,10 @@
                       <div class="mb-6 mt-3">
                         <label for="package_price" class="form-label">Package Price</label>
                         <input name="package_price" type="text" class="form-control" id="package_price" value="{{old('package_price', $packageItem->package_price)}}" required>
+                      </div>
+                      <div class="mb-6 mt-3">
+                        <label for="time" class="form-label">Time</label>
+                        <input name="time" type="text" class="form-control" id="time" required>
                       </div>
                       <div class="mt-3">
                         <label for="package_content" class="form-label">Post Content</label>

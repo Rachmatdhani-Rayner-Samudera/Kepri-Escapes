@@ -40,8 +40,9 @@ class DestinationController extends Controller
                 // Validasi data
                 $validatedData = $request->validate([
                     "package_name" => 'required|unique:tb_destination',
-                    "categoryd_id" => 'required',
+                    "category_d_id" => 'required',
                     "package_price" => 'required',
+                    "time" => 'required',
                     "package_content" => 'required',
                     "package_picture" => 'image',
                 ], [
@@ -76,11 +77,13 @@ class DestinationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Destination $destination, $slug)
+    public function show($slug)
     {
+        $destcategory = CategoryD::all();
         $detail = Destination::where('slug', $slug)->first();
         return view('destination.show', [
-        'detail' => $detail
+        'detail' => $detail,
+        'destcategory' => $destcategory,
         ]);
     }
 
@@ -103,8 +106,9 @@ class DestinationController extends Controller
         // Tentukan aturan validasi
         $rules = [
             "package_name" => 'required|unique:tb_destination,package_name,'.$destination->id,
-            "categoryd_id" => 'required',
+            "category_d_id" => 'required',
             "package_price" => 'required',
+            "time" => 'required',
             "package_content" => 'required',
             "package_picture" => 'image',
         ];

@@ -30,18 +30,8 @@
     </div>
   </section>
 
-  {{-- post filter --}}
-  <div class="post-filter container animated animatedFadeInUp fadeInUp">
-    <span class="filter-item active-filter" data-filter="all">All</span>
-    <span class="filter-item" data-filter="design">Design</span>
-    <span class="filter-item" data-filter="tech">Tech</span>
-    <span class="filter-item" data-filter="mobile">Mobile</span>
-  </div>
 
   {{-- Posts --}}
-  
-  
-
 <section class="post container animated animatedFadeInUp fadeInUp">
   
   @foreach ($posts as $postItem)
@@ -52,7 +42,7 @@
       @if (!empty($postItem->post_picture))
         <img src="{{ asset($picture) }}" alt="" class="post-img">
       @endif
-      <h2 class="category">{{ $postItem->Category->category_name }}</h2>
+      <h2 class="category"><a href="/blog/postcategories/{{$postItem->Category->slug}}" class="text-decoration-none"> {{$postItem->Category->category_name }}</a></h2>
       <a href="/blog/{{ $postItem->slug }}" class="post-title">
         {{ $postItem->post_title }}
       </a>
@@ -67,25 +57,12 @@
     </div>
   @endforeach
  
-
-    {{-- post box 2 --}}
 </section>
 
 
   {{-- Footer --}}
   @include('includes.footer')
     
-
-
-
-
-
-
-
-
-
-
-
   {{-- JQuery --}}
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   {{-- link to JS --}}

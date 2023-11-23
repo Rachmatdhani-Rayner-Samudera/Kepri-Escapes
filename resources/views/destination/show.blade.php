@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Post Page</title>
+  <title>Detail Package Page</title>
 
 
    {{-- Link to CSS --}}
@@ -23,16 +23,16 @@
   @include('includes.header')
 
   @php
-  $picture = str_replace('public', 'storage', $detail->post_picture);
+  $picture = str_replace('public', 'storage', $detail->package_picture);
   @endphp
   {{-- Posts Content --}}
   <section class="post-header">
     <div class="header-content post-container">
       {{-- back to home --}}
-      <a href="/blog" class="back-home">Back to blog</a>
-      <a href="/blog/postcategories/{{$detail->Category->slug}}" class="logo"><span>{{$detail->Category->category_name }}</span></a>
+      <a href="/destination" class="back-home">Back to Destination</a>
+      <a href="/destination/destcategories/{{$detail->Categoryd->slug}}" class="logo"><span>{{$detail->Categoryd->category_name }}</span></a>
       {{-- title --}}
-      <h1 class="header-title">{{$detail->post_title}}</h1>
+      <h1 class="header-title">{{$detail->package_name}}</h1>
       {{-- post picture --}}
       <img src="{{ asset($picture) }}" alt="" class="header-img">
     </div>
@@ -43,19 +43,9 @@
   <section class="post-content post-container">
     {{-- <h2 class="sub-heading"></h2> --}}
     
-    <p class="post-text"> {!! $detail->post_content !!}</p>
+    <p class="post-text"> {!! $detail->package_content !!}</p>
   </section>
 
-  {{-- share --}}
-  {{-- <div class="share post-container">
-    <span class="share-title">Share this article</span>
-    <div class="social">
-      <a href="#"><i class="bx bxl-facebook"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-instagram"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-twitter"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-linkedin"></i></box-icon></a>
-    </div>
-  </div> --}}
   {{-- Footer --}}
   @include('includes.footer')
   </div>
@@ -77,16 +67,3 @@
   <script src="{{asset('assets/js/blog.js')}}"></script>
 </body>
 </html>
-
-
-
-
-
-{{-- <article>
-  <h2>{{$detail->post_title}}</h2>
-  
-  <h5>{!! $detail->creator !!}</h5>
-  <h2>{!! $detail->post_content !!}</h2>
-</article>
-
-<a href="/blog">Back to Blog</a> --}}

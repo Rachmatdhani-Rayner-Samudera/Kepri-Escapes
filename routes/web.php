@@ -7,7 +7,6 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CategoryDController;
 use App\Http\Controllers\DestinationController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LoginController;
 use App\Models\Category;
 use App\Models\CategoryD;
 /*
@@ -21,17 +20,9 @@ use App\Models\CategoryD;
 |
 */
 
-
-Route::group(['prefix' => 'admin','middleware' => ['auth'], 'as' => 'admin.'] , function(){
-
-
-
-});
-
-
 Route::get('/dashboard', function () {
     return view('includes.master');
-});
+});  
 
 // <--------- Auto Slug Route ---------->
 Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
@@ -60,7 +51,8 @@ Route::get('/contact', [HomeController::class, 'contact']);
 
 // <--------- Single Post Route ---------->
 Route::get('/blog/{post:slug}', [BlogController::class, 'show' ]);
-Route::get('/postcategories/{category:slug}', function(Category $category, CategoryD $destcategory){
+Route::get('/destination/{destination:slug}', [DestinationController::class, 'show' ]);
+Route::get('/blog/postcategories/{category:slug}', function(Category $category, CategoryD $destcategory){
     $destcategory = categoryD::all();
     return view('posts/categoryp/show', [
         'category_name' => $category->category_name,
@@ -68,10 +60,11 @@ Route::get('/postcategories/{category:slug}', function(Category $category, Categ
         'destcategory'=> $destcategory
     ]);
 });
-
-
-// <--------- Login && Register Route ---------->
-
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/destination/destcategories/{category:slug}', function(CategoryD $category){
+    $destcategory = CategoryD::all();
+    return view('destination/categoryd/show', [
+        'category_name' => $category->category_name,
+        'destination' => $category->Destination,
+        'destcategory'=> $destcategory
+    ]);
+});

@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('tb_destination', function (Blueprint $table) {
             $table->id();
             $table->string('package_name');
-            $table->foreignId('categoryd_id');
+            $table->foreignId('category_d_id');
             $table->integer('package_price');
+            $table->string('time');
             $table->text ('package_content');
             $table->string('slug')->nullable();
             $table->string('package_picture');
