@@ -38,13 +38,13 @@ Route::get('/dashboard/postcategory/autoSlug', [CategoryController::class, 'auto
 Route::get('/dashboard/destination/autoSlug', [DestinationController::class, 'autoSlug']);
 
 // <--------- Core Route ---------->
-Route::resource('/dashboard/post',PostController::class);
+Route::resource('/dashboard/post',PostController::class)->middleware('auth');
 
-Route::resource('/dashboard/destination',DestinationController::class);
+Route::resource('/dashboard/destination',DestinationController::class)->middleware('auth');
 
-Route::resource('/dashboard/destcategory',CategoryDController::class);
+Route::resource('/dashboard/destcategory',CategoryDController::class)->middleware('auth');
 
-Route::resource('/dashboard/postcategory',CategoryController::class);
+Route::resource('/dashboard/postcategory',CategoryController::class)->middleware('auth');
 
 
 
