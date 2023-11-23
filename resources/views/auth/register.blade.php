@@ -9,11 +9,11 @@
 <body>
   <div class="wrapper">
     <h2>Kepri Escapes</h2>
-    <p>Sign me up for your adventure</p>
+    <p>Register for your adventure</p>
     <form action="{{ route('register-proses') }}" method="POST">
         @csrf
       <div class="input-box">
-        <input name="name" type="text" placeholder="Full Name" required value="{{ old('name') }}">
+        <input name="name" type="text" placeholder="Full Name" autofocus required value="{{ old('name') }}">
       </div>
 
     @error('name')
@@ -44,6 +44,14 @@
 <small>{{ $message }}</small>
 @enderror
 
+<div class="input-box">
+    <input name="password_confirmation" type="password" placeholder="Password Confirmation" required>
+  </div>
+
+  @error('confirmed')
+<small>{{ $message }}</small>
+@enderror
+
       <div class="input-box button">
         <input type="Submit" value="Register Now">
       </div>
@@ -55,11 +63,11 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  @if($massage = Session::get('error'))
+  @if($massage = Session::get('sucess'))
   <script>
         Swal.fire({
   title: "{{ $massage }}",
-  icon: "error"
+  icon: "success"
 });
   </script>
   @endif

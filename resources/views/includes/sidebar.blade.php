@@ -25,7 +25,7 @@
             </ul>
         </li>
         </li>
-        
+
 
         <li class="nav-heading">Tour Guide</li>
         <li class="nav-item">
@@ -51,7 +51,7 @@
             </ul>
         </li>
         </li>
-        
+
         <li class="nav-heading">Destination</li>
         <li class="nav-item">
             <a class="nav-link collapsed" {{ Request::is('dashboard/post*') ? 'active' : ''}} data-bs-target="#destinav" data-bs-toggle="collapse">
@@ -81,7 +81,7 @@
             </ul>
         </li>
         </li>
-    
+
             <li class="nav-heading">Blog & Posts</li>
             <li class="nav-item">
                 <a class="nav-link collapsed" {{ Request::is('dashboard/post*') ? 'active' : ''}} data-bs-target="#blognav" data-bs-toggle="collapse">
@@ -108,12 +108,8 @@
                         <span>Post Category Data</span>
                     </a>
                 </li>
-                
+
                 </ul>
              </li>
-             
-    
-             
-
     </ul>
 </aside>
