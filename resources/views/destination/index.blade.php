@@ -24,7 +24,7 @@
                           <div class="row justify-content-end">
                             <div class="col mt-3">
                                 <input type="text" class="form-control" id="searchInput"
-                                    placeholder="Search Destination..." style="width: 300px;">
+                                    placeholder="Search Post..." style="width: 300px;">
                             </div>
                               <div class="col-auto">
                                   <button class="btn btn-success m-3" data-bs-toggle="modal"
@@ -114,12 +114,11 @@
                   </div>
                     <div class="mb-6 mt-3">
                       <label for="package_price" class="form-label">Package Price</label>
-                      <input name="package_price" type="text" class="form-control" id="package_price" placeholder="ex : 100000 = 100 " required>
-                      <div id="priceHelp" class="form-text">Remove the last three "0" in the price.</div>
+                      <input name="package_price" type="text" class="form-control" id="package_price" required>
                     </div>
                     <div class="mb-6 mt-3">
                       <label for="time" class="form-label">Time</label>
-                      <input name="time" type="text" class="form-control" id="time" placeholder="1 Day 1 Night" required>
+                      <input name="time" type="text" class="form-control" id="time" required>
                     </div>
                     <div class=" mt-3">
                     <label for="package_content" class="form-label">Package Content</label>
@@ -243,11 +242,11 @@
                     </div>
                       <div class="mb-6 mt-3">
                         <label for="package_price" class="form-label">Package Price</label>
-                        <input name="package_price" type="text" class="form-control" id="package_price" value="{{old('package_price', $packageItem->package_price)}}" placeholder="ex: 100000 = 100"required>
+                        <input name="package_price" type="text" class="form-control" id="package_price" value="{{old('package_price', $packageItem->package_price)}}" required>
                       </div>
                       <div class="mb-6 mt-3">
                         <label for="time" class="form-label">Time</label>
-                        <input name="time" type="text" class="form-control" id="time" placeholder="1 Day 1 Night"required>
+                        <input name="time" type="text" class="form-control" id="time" required>
                       </div>
                       <div class="mt-3">
                         <label for="package_content" class="form-label">Post Content</label>

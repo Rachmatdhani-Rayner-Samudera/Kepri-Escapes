@@ -20,11 +20,7 @@
 </head>
 <body>
   {{-- header --}}
-  @auth
-  @include('includes.loginheader')
-      @else
-      @include('includes.header')
-  @endauth
+  @include('includes.header')
 
   @php
   $picture = str_replace('public', 'storage', $detail->post_picture);

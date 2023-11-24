@@ -43,6 +43,26 @@
   </div>
   </div>
   </nav>
-  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-
+  {{-- <div class="nav container">
+  {{-- logo
+  <a href="#" class="logo">Kepri<span>Escapes</span></a>
+  <a href="#" class="login">Login</a>
+  {{-- login btn --
+  <a href="#" class="login">Login</a>
+  </div>--}}
 </header>
+<script>
+  // Mendapatkan elemen dropdown
+  var destinationDropdown = document.getElementById("destination");
+
+  // Model CategoryD (contoh nilai)
+  var categoryD = ["Category1", "Category2", "Category3"];
+
+  // Mengisi dropdown dengan nilai dari model CategoryD
+  for (var i = 0; i < categoryD.length; i++) {
+    var option = document.createElement("option");
+    option.value = categoryD[i];
+    option.text = categoryD[i];
+    destinationDropdown.add(option);
+  }
+</script>

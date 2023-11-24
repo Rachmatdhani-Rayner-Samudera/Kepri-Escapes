@@ -14,6 +14,25 @@ class LoginController extends Controller
         return view('auth.login');
     }
 
+    // public function login_proses(Request $request)
+    // {
+    //     $request->validate([
+    //         'email' => 'required|email',
+    //         'password' => 'required',
+    //     ]);
+
+    //     $credentials = [
+    //         'email' => $request->email,
+    //         'password' => $request->password
+    //     ];
+
+    //     if (Auth::attempt($credentials)) {
+    //         return redirect('/dashboard')->with('success', 'Welcome to the admin dashboard');
+    //     } else {
+    //         return redirect()->route('login')->with('error', 'Email or password is incorrect.');
+    //     }
+    // }
+
 
     public function login_proses(Request $request)
     {
@@ -23,27 +42,27 @@ class LoginController extends Controller
                 'password' => 'required',
             ],
             [
-                'email.required' => 'username is required',
-                'password.required' => 'password is required',
+                'email.required' => 'username tidak boleh kosong',
+                'password.required' => 'password tidak boleh kosong',
             ]
         );
 
         if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
-            $name = str_replace('_', '', strtolower(Auth::user()->name));
+            $name = str_replace('_', '', strtolower(Auth::user()->email));
             if (auth()->user()->role == 'admin') {
-                return redirect()->route('dashboard')->with('success', 'Welcome sweet admin :)');
+                return redirect()->route('dashboard')->with('login', 'Selamat datang '. $name);
             } elseif (auth()->user()->role == 'user') {
-                return redirect()->route('user_login')->with('success', 'Welcome and start your adventure ' . $name);
+                return redirect()->route('user_login')->with('login', 'Selamat datang ' . $name);
             }
         }else{
-            return redirect()->route('login')->with('error', 'email dan password is invalid!');
+            return redirect()->route('login')->with('error-salah', 'email atau password salah !');
         }
     }
 
     public function logout()
     {
         Auth::logout();
-        return redirect()->route('user_login')->with('success', 'Logout successful');
+        return redirect()->route('login')->with('success', 'Logout successful');
     }
 
     public function register()

@@ -3,7 +3,7 @@
   {{-- nav container --}}
   <nav>
   <div class="nav container">
-  <a href="/" class="logo">Kepri<span>Escapes</span></a>
+  <a href="#" class="logo">Kepri<span>Escapes</span></a>
 
   <ul class="ul">
     <li><a href="/">Home</a></li>
@@ -38,9 +38,13 @@
       </a>
       <ul class="kunsi dropdown-menu dropdown-menu-dark dropdown-menu-end dropdown-menu-arrow profile">
         <li>
+              <a class="dropdown-item d-flex align-items-center" href="/dashboard">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Dashboard</span>
+            </a>
             <li>
                 <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}">
-                    <i class="bi bi-box-arrow-right pe-2"></i>
+                    <i class="bi bi-box-arrow-right"></i>
                     <span>Sign Out</span>
                 </a>
             </li>
@@ -58,6 +62,26 @@
   </div>
   </div>
   </nav>
-  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  {{-- <div class="nav container">
+  {{-- logo
+  <a href="#" class="logo">Kepri<span>Escapes</span></a>
+  <a href="#" class="login">Login</a>
+  {{-- login btn --
+  <a href="#" class="login">Login</a>
+  </div>--}}
 </header>
+<script>
+  // Mendapatkan elemen dropdown
+  var destinationDropdown = document.getElementById("destination");
 
+  // Model CategoryD (contoh nilai)
+  var categoryD = ["Category1", "Category2", "Category3"];
+
+  // Mengisi dropdown dengan nilai dari model CategoryD
+  for (var i = 0; i < categoryD.length; i++) {
+    var option = document.createElement("option");
+    option.value = categoryD[i];
+    option.text = categoryD[i];
+    destinationDropdown.add(option);
+  }
+</script>

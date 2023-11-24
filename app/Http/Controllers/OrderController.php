@@ -16,23 +16,19 @@ class OrderController extends Controller
     }
     public function checkout(Request $request){
         // dd($request->all(), $request->price * 1000);
-
         $bebas = $request->price * 1000;
         $request->request->add([
             'total_price' => $request->qty * $bebas, 
             'status' => 'Unpaid'
         ]);
-     
         $order = Order::create([
             'name' => $request->name,
             'phone'=> $request->phone,
             'email'=> $request->email,
             'qty'=> $request->qty,
             'total_price'=> $request->total_price,
-            'package_name'=> $request->package_name,
             'status' => $request->status
         ]);
-      
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         \Midtrans\Config::$isProduction = config('midtrans.is_production');
         \Midtrans\Config::$isSanitized = true;
@@ -73,8 +69,4 @@ class OrderController extends Controller
         return view('order.invoice', compact('order','destcategory'));
     }
     
-    public function transactiondata(Order $order){
-        $order = Order::all();
-        return view('order.transaction', compact('order'));
-    }
 }

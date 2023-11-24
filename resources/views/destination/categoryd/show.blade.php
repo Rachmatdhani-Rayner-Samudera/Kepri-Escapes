@@ -114,11 +114,7 @@
 <body>
 
   {{-- header --}}
-  @auth
-  @include('includes.loginheader')
-      @else
-      @include('includes.header')
-  @endauth
+ @include('includes.header')
 
   {{-- home --}}
   <section class="home" id="home">

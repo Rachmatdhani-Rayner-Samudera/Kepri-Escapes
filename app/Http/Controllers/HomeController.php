@@ -29,7 +29,6 @@ class HomeController extends Controller
     $destcategory = CategoryD::all();
     return view('landingpage.contact', compact('destcategory'));
   }
-  
 
 
 }

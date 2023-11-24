@@ -27,10 +27,10 @@ class DatabaseSeeder extends Seeder
                 'role' => 0,
             ],
             [
-                'name' => 'Sampin',
+                'name' => 'KelvinEscapes',
                 'phone' => '08994879433',
-                'email' => 'sampin@gmail.com',
-                'password' => bcrypt('12345678'),
+                'email' => 'nivlzk050306@gmail.com',
+                'password' => bcrypt('kepinescapes'),
                 'role' => 1,
             ]
         ];
