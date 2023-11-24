@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CategoryD;
 use App\Models\Order;
+use App\Models\Destination;
 
 
 class OrderController extends Controller
@@ -14,13 +15,20 @@ class OrderController extends Controller
         return view("order.index", compact("destcategory"));
     }
     public function checkout(Request $request){
-        // dd($request->all());
+        // dd($request->all(), $request->price * 1000);
+        $bebas = $request->price * 1000;
         $request->request->add([
-            'total_price' => $request->qty * 10, 
+            'total_price' => $request->qty * $bebas, 
             'status' => 'Unpaid'
         ]);
-        $order = Order::create($request->all());
-
+        $order = Order::create([
+            'name' => $request->name,
+            'phone'=> $request->phone,
+            'email'=> $request->email,
+            'qty'=> $request->qty,
+            'total_price'=> $request->total_price,
+            'status' => $request->status
+        ]);
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         \Midtrans\Config::$isProduction = config('midtrans.is_production');
         \Midtrans\Config::$isSanitized = true;

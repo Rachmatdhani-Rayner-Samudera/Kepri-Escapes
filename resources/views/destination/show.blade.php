@@ -44,6 +44,33 @@
     {{-- <h2 class="sub-heading"></h2> --}}
     
     <p class="post-text"> {!! $detail->package_content !!}</p>
+
+    <h4 class="sub-title">Order Now!</h4>
+    
+      <form action="/checkout" method="post">
+        @csrf
+        <div class="mt-3">
+          <label for="qty" class="form-label">How many tickets do you want to order?</label>
+          <input name="qty" type="number" class="form-control" id="qty" required>
+        </div>
+        <div class="mt-3">
+          <label for="name" class="form-label">Your name</label>
+          <input name="name" type="text" class="form-control" id="text" required>
+        </div>
+        <div class="mt-3">
+          <label for="email" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mt-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input name="phone" type="text" class="form-control" id="phone" required>
+        </div>
+          <input name="price" type="text" hidden class="form-control" value="{{ $detail->package_price }}" id="price" required>
+        
+        <div class="mt-3">
+        <button type="submit" class="btn btn-primary">Checkout</button>
+        </div>
+      </form>
   </section>
 
   {{-- Footer --}}

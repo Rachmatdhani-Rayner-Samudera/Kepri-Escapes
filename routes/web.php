@@ -100,6 +100,6 @@ Route::resource('/dashboard/postcategory',CategoryController::class);
 });
 
 // <--------- Midtrans Order Route ---------->
-Route::get('/order', [OrderController::class, 'index']);
+
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::get('/invoice/{id}', [OrderController::class, 'invoice']);
