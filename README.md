@@ -68,8 +68,9 @@ php artisan migrate:fresh --seed
 
 ## HOW TO CLONE THIS REPO
 1. git clone https://github.com/Rachmatdhani-Rayner-Samudera/Kepri-Escapes
-2. composer install
-3. php artisan migrate
-4. php artisan key:generate
-5. composer require midtrans/midtrans-php
-6. php artisan migrate:fresh --seed
+2. composer install MUSH!
+3. rename .env.example to .env MUSH!
+4. php artisan migrate
+5. php artisan key:generate MUSH!
+6. composer require midtrans/midtrans-php MUSH!
+7. php artisan migrate:fresh --seed
