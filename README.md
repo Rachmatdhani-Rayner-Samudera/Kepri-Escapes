@@ -74,3 +74,4 @@ php artisan migrate:fresh --seed
 5. php artisan key:generate MUSH!
 6. composer require midtrans/midtrans-php MUSH!
 7. php artisan migrate:fresh --seed
+8. database configuration to .env
