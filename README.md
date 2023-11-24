@@ -63,4 +63,13 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).php artisan key:generate
+php artisan migrate:fresh --seed
+
+## HOW TO CLONE THIS REPO
+1. git clone https://github.com/Rachmatdhani-Rayner-Samudera/Kepri-Escapes
+2. composer install
+3. php artisan migrate
+4. php artisan key:generate
+5. composer require midtrans/midtrans-php
+6. php artisan migrate:fresh --seed
