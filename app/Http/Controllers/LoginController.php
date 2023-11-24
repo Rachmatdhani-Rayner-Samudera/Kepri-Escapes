@@ -3,78 +3,82 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\CategoryD;
-use App\Models\Order;
-use App\Models\Destination;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
-
-class OrderController extends Controller
+class LoginController extends Controller
 {
-    public function index(){
-        $destcategory = CategoryD::all();
-        return view("order.index", compact("destcategory"));
+    public function index()
+    {
+        return view('auth.login');
     }
-    public function checkout(Request $request){
-        // dd($request->all(), $request->price * 1000);
 
-        $bebas = $request->price * 1000;
-        $request->request->add([
-            'total_price' => $request->qty * $bebas, 
-            'status' => 'Unpaid'
-        ]);
-     
-        $order = Order::create([
-            'name' => $request->name,
-            'phone'=> $request->phone,
-            'email'=> $request->email,
-            'qty'=> $request->qty,
-            'total_price'=> $request->total_price,
-            'package_name'=> $request->package_name,
-            'status' => $request->status
-        ]);
-      
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        \Midtrans\Config::$isProduction = config('midtrans.is_production');
-        \Midtrans\Config::$isSanitized = true;
-        \Midtrans\Config::$is3ds = true;
 
-        $params = array(
-            'transaction_details' => array(
-                'order_id' => $order->id,
-                'gross_amount' => $order->total_price,
-            ),
-            'customer_details' => array(
-                'first_name' => $request->name,
-                'last_name' => "",
-                'phone' => $request->phone,
-            ),
+    public function login_proses(Request $request)
+    {
+        $input = $request->all();
+        $request->validate([
+                'email' => 'required',
+                'password' => 'required',
+            ],
+            [
+                'email.required' => 'username is required',
+                'password.required' => 'password is required',
+            ]
         );
 
-        $destcategory = CategoryD::all();
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
-        return view("order.checkout", compact('snapToken','order','destcategory'));
-    }
-
-    public function callback(Request $request)
-    {
-        $serverKey = config('midtrans.server_key');
-        $hashed = hash("sha512", $request->order_id.$request->status_code.$request->gross_amount.$serverKey);
-        if($hashed == $request->signature_key){
-            if($request->transaction_status == "capture" or $request->transaction_status == "settlement"){
-                $order = Order::find($request->order_id);
-                $order->update(['status' => 'Paid']);
+        if (auth()->attempt(['email' => $input['email'], 'password' => $input['password']])) {
+            $name = str_replace('_', '', strtolower(Auth::user()->name));
+            if (auth()->user()->role == 'admin') {
+                return redirect()->route('dashboard')->with('success', 'Welcome sweet admin :)');
+            } elseif (auth()->user()->role == 'user') {
+                return redirect()->route('user_login')->with('success', 'Welcome and start your adventure ' . $name);
             }
-         }
+        }else{
+            return redirect()->route('login')->with('error', 'email dan password is invalid!');
+        }
     }
 
-    public function invoice($id){
-        $destcategory = CategoryD::all();
-        $order = Order::find($id);
-        return view('order.invoice', compact('order','destcategory'));
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('user_login')->with('success', 'Logout successful');
     }
-    
-    public function transactiondata(Order $order){
-        $order = Order::all();
-        return view('order.transaction', compact('order'));
+
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function register_proses(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'phone' => [
+                'required',
+                'numeric',
+                'regex:/^08[0-9]{8,}$/',
+                'unique:users',
+            ],
+            'password' => 'required|min:8|confirmed',
+        ], [
+            'email.unique' => 'The email address is already in use.',
+            'phone.regex' => 'The phone number must start with 08 and have at least 10 digits.',
+            'phone.unique' => 'The phone number is already in use.',
+        ]);
+
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+            'role' => 1,
+        ];
+
+        $user = User::create($data);
+
+        return redirect()->route('login')->with('success', 'Account created successfully! Please log in.');
     }
 }
