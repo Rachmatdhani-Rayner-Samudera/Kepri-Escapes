@@ -104,7 +104,7 @@
                 <h2 class="subsub">Contact Us To Get More Info</h2>
                 <p>Curiosity is the key to growth, and we're here to provide you with the insights you crave. Whether you're seeking information, have questions, or want to explore potential collaborations, reaching out to us is the first step in turning possibilities into reality.</p>
                 <div class="image">
-                    <img src="{{asset('assets/img/contact2.jpg')}}" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
+                    <img src="{{asset('assets/img/contact.jpg')}}" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
                 </div>
             </div>
             <div class="col">
