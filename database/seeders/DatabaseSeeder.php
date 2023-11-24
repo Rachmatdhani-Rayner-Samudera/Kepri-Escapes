@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\CategoryD;
 use App\Models\Destination;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,7 +16,29 @@ class DatabaseSeeder extends Seeder
      * Seed the application's database.
      */
     public function run(): void
-    {   
+    {
+
+        $data_user = [
+            [
+                'name' => 'kepin',
+                'phone' => '08994879433',
+                'email' => 'admin@kepin.com',
+                'password' => bcrypt('123456789'),
+                'role' => 0,
+            ],
+            [
+                'name' => 'kepin',
+                'phone' => '08994879433',
+                'email' => 'admin@kepin.com',
+                'password' => bcrypt('123456789'),
+                'role' => 1,
+            ]
+        ];
+
+        foreach ($data_user as $user) {
+
+            User::create($user);
+        }
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
@@ -120,7 +143,7 @@ class DatabaseSeeder extends Seeder
                                <div>Donec malesuada dapibus ex, vel faucibus diam accumsan in. Pellentesque porttitor metus et lorem ullamcorper ultricies. Suspendisse potenti. Suspendisse interdum justo sit amet sapien faucibus tincidunt. Vestibulum consectetur ornare enim. Proin efficitur sapien at mi porta, sed condimentum nisl vehicula. Aliquam erat volutpat. Donec fringilla ut libero hendrerit viverra. Fusce arcu nisi, elementum ut tellus id, cursus ornare magna. Nulla volutpat nunc nulla</div>',
             'slug' => 'one-day-tour-batam',
             'package_picture' => 'assets/img/batam-city.jpg'
-        ]); 
+        ]);
 
         Destination::create([
             'package_name' => 'One Day Tour Penyengat Island',

@@ -27,29 +27,15 @@ use App\Models\CategoryD;
 // Route::get('/login',[AuthController::class, 'login'])->name('login');
 
 
-Route::get('/dashboard', function () {
-    return view('includes.master');
-})->middleware('auth');
 
 
-// <--------- Auto Slug Route ---------->
-Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
-Route::get('/dashboard/postcategory/autoSlug', [CategoryController::class, 'autoSlug']);
-Route::get('/dashboard/destination/autoSlug', [DestinationController::class, 'autoSlug']);
 
-// <--------- Core Route ---------->
-Route::resource('/dashboard/post',PostController::class)->middleware('auth');
 
-Route::resource('/dashboard/destination',DestinationController::class)->middleware('auth');
-
-Route::resource('/dashboard/destcategory',CategoryDController::class)->middleware('auth');
-
-Route::resource('/dashboard/postcategory',CategoryController::class)->middleware('auth');
 
 
 
 // <--------- Landing Page Route ---------->
-Route::get('/', [HomeController::class, 'home']);
+Route::get('/', [HomeController::class, 'home'])->name('user_login');
 Route::get('/about', [HomeController::class, 'about']);
 Route::get('/blog', [BlogController::class, 'index' ]);
 Route::get('/destination', [HomeController::class, 'destination']);
@@ -80,8 +66,8 @@ Route::get('/destination/destcategories/{category:slug}', function(CategoryD $ca
 
 
 // <--------- Login Route ---------->
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses')->middleware('guest');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
@@ -89,3 +75,24 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
+
+
+Route::middleware(['auth', 'user-role:admin'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('includes.master');
+    })->name('dashboard');
+
+    // <--------- Auto Slug Route ---------->
+Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
+Route::get('/dashboard/postcategory/autoSlug', [CategoryController::class, 'autoSlug']);
+Route::get('/dashboard/destination/autoSlug', [DestinationController::class, 'autoSlug']);
+
+// <--------- Core Route ---------->
+Route::resource('/dashboard/post',PostController::class);
+
+Route::resource('/dashboard/destination',DestinationController::class);
+
+Route::resource('/dashboard/destcategory',CategoryDController::class);
+
+Route::resource('/dashboard/postcategory',CategoryController::class);
+});
