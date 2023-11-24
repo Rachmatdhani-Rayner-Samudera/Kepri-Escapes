@@ -243,11 +243,11 @@
                     </div>
                       <div class="mb-6 mt-3">
                         <label for="package_price" class="form-label">Package Price</label>
-                        <input name="package_price" type="text" class="form-control" id="package_price" value="{{old('package_price', $packageItem->package_price)}}" required>
+                        <input name="package_price" type="text" class="form-control" id="package_price" value="{{old('package_price', $packageItem->package_price)}}" placeholder="ex: 100000 = 100"required>
                       </div>
                       <div class="mb-6 mt-3">
                         <label for="time" class="form-label">Time</label>
-                        <input name="time" type="text" class="form-control" id="time" required>
+                        <input name="time" type="text" class="form-control" id="time" placeholder="1 Day 1 Night"required>
                       </div>
                       <div class="mt-3">
                         <label for="package_content" class="form-label">Post Content</label>
