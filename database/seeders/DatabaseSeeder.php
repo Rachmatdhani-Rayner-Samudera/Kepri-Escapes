@@ -20,17 +20,17 @@ class DatabaseSeeder extends Seeder
 
         $data_user = [
             [
-                'name' => 'kepin',
-                'phone' => '08994879433',
-                'email' => 'admin@kepin.com',
-                'password' => bcrypt('123456789'),
+                'name' => 'KepriEscapes',
+                'phone' => '00000',
+                'email' => 'KepriEscapes.com',
+                'password' => bcrypt('kepri2023'),
                 'role' => 0,
             ],
             [
-                'name' => 'kepin',
+                'name' => 'KelvinEscapes',
                 'phone' => '08994879433',
-                'email' => 'admin@kepin.com',
-                'password' => bcrypt('123456789'),
+                'email' => 'nivlzk050306@gmail.com',
+                'password' => bcrypt('kepinescapes'),
                 'role' => 1,
             ]
         ];
