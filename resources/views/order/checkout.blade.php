@@ -15,20 +15,29 @@
 
     {{-- data-client-key={{ env('MIDTRANS_CLIENT_KEY') }} --}}
     <!-- Note: replace with src="https://app.midtrans.com/snap/snap.js" for Production environment -->
-  
+
    {{-- Link to CSS --}}
    <link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
    {{-- bootsrap --}}
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-     
+
    {{-- Box Icons --}}
    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
 <style>
   .pe{
     margin-top: 20px;
   }
+
+
+body {
+    background-color: none;
+    background:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/abouttt.jpg') no-repeat;
+    background-position: center;
+
+}
+
   </style>
 </head>
 <body>
@@ -61,7 +70,7 @@
     <button type="" class="btn btn-primary pe" id="pay-button">Pay Now</button>
 
   </div>
-  
+
 
 
 

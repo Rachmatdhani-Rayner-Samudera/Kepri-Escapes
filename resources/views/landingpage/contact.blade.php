@@ -7,20 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Contact - Kepri Escapes</title>
-
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/blog.css')}}">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-lMFmDOdNhz7Y5jpCr0DeHzcJS9JQx8m66o1PIaIQWxGc8qPi2sjhP5NH27cikFVz" crossorigin="anonymous">
-
-    <!-- Box Icons -->
+    <link rel="stylesheet" href="http://127.0.0.1:8000/assets/css/blog.css">
+    <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-
     <style>
         .home {
             background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/img/about.jpg');
@@ -55,118 +48,133 @@
             font-size: 1.3rem;
         }
 
-        .icon-container {
+        .icon-background,
+        .bi-envelope-at-fill {
+            padding: 5px;
+            border-radius: 50%;
             display: inline-block;
-            background-color: #4582e8;
-            padding: 15px;
-            border-radius: 15%;
-            margin-right: 10px; /* Add margin-right for spacing between icons */
+            margin-right: 5px; /* Tambahkan margin-right agar ikon terpisah */
         }
 
-        .icon-container i {
-            color: #fff;
-            font-size: 24px;
+        .icon-color {
+            color: #4582e8;
+            font-size: 1.5em;
         }
 
-        .contact-info {
-            margin-top: 10px;
+        .location-box {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
         }
 
-        @media only screen and (max-width: 768px) {
-            .subisubi {
-                font-size: 1.1rem;
-            }
+        .location-content {
+            flex: 1;
         }
     </style>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="nav container">
+                <a href="/" class="logo">Kepri<span>Escapes</span></a>
+                <ul class="ul">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <div class="btn-group">
+                        <li>
+                            <a href="/destination">
+                                Destination
+                            </a>
+                            <a href="/destination" class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
+                                id="defaultDropdown" data-bs-auto-close="true" aria-expanded="false">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
+                                <li><a class="dropdown-item" value="tanjungpinang-city"
+                                        href="/destination/destcategories/tanjungpinang-city">Tanjungpinang City</a></li>
+                                <li><a class="dropdown-item" value="batam-city"
+                                        href="/destination/destcategories/batam-city">Batam City</a></li>
+                                <li><a class="dropdown-item" value="bintan-island"
+                                        href="/destination/destcategories/bintan-island">Bintan Island</a></li>
+                                <li><a class="dropdown-item" value="karimun-island"
+                                        href="/destination/destcategories/karimun-island">Karimun Island</a></li>
+                                <li><a class="dropdown-item" value="natuna-island"
+                                        href="/destination/destcategories/natuna-island">Natuna Island</a></li>
+                                <li><a class="dropdown-item" value="lingga-island"
+                                        href="/destination/destcategories/lingga-island">Lingga Island</a></li>
+                                <li><a class="dropdown-item" value="anambas-island"
+                                        href="/destination/destcategories/anambas-island">Anambas Island</a></li>
+                            </ul>
+                        </li>
+                    </div>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+                <div>
+                    <a href="/login" class="login">Login</a>
+                    <a href="/register" class="signup">Register</a>
+                </div>
+                <div class="menu-toggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-    <!-- Header -->
-    @include('includes.header')
-
-    <!-- Home -->
     <section class="home" id="home">
+        <link rel="stylesheet" href="http://127.0.0.1:8000/assets/img/blog.jpg">
         <div class="home-text container">
             <h2 class="home-title animated animatedFadeInUp fadeInUp">Contact</h2>
-            <span class="home-subtitle animated animatedFadeInUp fadeInUp">Discover the way to keep in touch with Kepri Escapes</span>
+            <span class="home-subtitle animated animatedFadeInUp fadeInUp">Discover the way to keep in touch with
+                Kepri Escapes</span>
         </div>
     </section>
 
-    <!-- Content -->
     <section class="about" id="about">
         <div class="row">
             <div class="col">
-                <div class="cuko animated animatedFadeInLeft fadeInLeft">
+                <div class="cuko">
                     <div class="line mt-2"></div>
                     <p class="gettouch">Get In Touch</p>
                 </div>
-                <h2 class="subsub">Contact Us To Get More Info</h2>
-                <p>Curiosity is the key to growth, and we're here to provide you with the insights you crave. Whether you're seeking information, have questions, or want to explore potential collaborations, reaching out to us is the first step in turning possibilities into reality.</p>
+                <h3 class="subsub"> Contact Us To Get <br>More Info</h3>
                 <div class="image">
-                    <img src="{{asset('assets/img/contact.jpg')}}" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
+                    <img src="http://127.0.0.1:8000/assets/img/about2.jpg" alt=""
+                        class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
                 </div>
             </div>
             <div class="col">
-                <div class="bawah content animated animatedFadeInRight fadeInRight">
-                    <h4 class="subsub">Need help? Feel free to contact us!</h4>
+                <div class="content animated animatedFadeInRight fadeInRight">
+                    <h3> Kepri Escapes, Your Favorite Tour Provider</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequatur eos dolore? Voluptas quisquam iure nihil praesentium eaque reprehenderit temporibus?</p>
                     <div class="line"></div>
-                    <p>Welcome to Kepri Escapes, your gateway to unforgettable adventures in the Riau Islands! We are not just a tour package provider; we are architects of beautiful memories that will linger in your mind for a lifetime. Kepri Escapes envisions bringing the beauty of the Riau Islands to you through travel packages that not only captivate but also fulfill your every adventure-seeking desire.</p>
-                    <div class="contact-info">
-                        <div>
-                            <span class="icon-container">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            Kepulauan Riau, Tanjungpinang, SMKN 4 Tanjungpinang
-                        </div>
-                        <div>
-                            <span class="icon-container">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            KepriEscapes@gmail.com
-                        </div>
-                        <div>
-                            <span class="icon-container">
-                                <i class="fab fa-whatsapp"></i>
-                            </span>
-                            08994879433
-                        </div>
-                    </div>
-                    <div class="contact-info">
-                        <div>
-                            <h4>Follow us on social media..</h4>
-                            <a href="https://www.instagram.com/kepri_escapes/?igshid=OGQ5ZDc2ODk2ZA%3D%3D" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-instagram icon-container" style="background-color: transparent;"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="content animated animatedFadeInLeft fadeInLeft">
-                    <h3>Enjoy Your Holiday With Us</h3>
-                    <div class="line"></div>
-                    <p>We are not just a tour package provider; we are the architects of beautiful memories that will remain in your memory for the rest of your life. Kepri Escapes is here with a vision to present the natural beauty of the Riau Islands in a travel package that is not only stunning but also fulfills your every adventure wish.</p>
-                </div>
-            </div>
-            <div class="col">
-                <div class="image">
-                    <img src="{{asset('assets/img/about3.jpg')}}" alt="" class="img-shadow-right animated animatedFadeInRight fadeInRight">
+                    <span class="icon-background">
+                        <i class="bi bi-geo-alt-fill icon-color"></i>
+                    </span>
+                    Jl. Nusantara No.KM.14
+
+                        <i class="bi bi-envelope-at-fill icon-color"></i>
+
+                    kepriescapes@gmail.com
+                    <i class="bi bi-whatsapp icon-color"></i> +628994879433
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    @include('includes.footer')
+    <div class="footer">
+        <p>&#169; Kepri Escapes All Right Reserved</p>
+        <div class="social">
+            <a href="https://www.instagram.com/kepri_escapes/"><i class="bx bxl-instagram"></i></a>
+        </div>
+    </div>
 
-    <!-- JQuery -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <!-- Link to JS -->
-    <script src="{{asset('assets/js/blog.js')}}"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="http://127.0.0.1:8000/assets/js/blog.js"></script>
 </body>
 
 </html>
