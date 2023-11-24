@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'KepriEscapes',
                 'phone' => '00000',
-                'email' => 'KepriEscapes.com',
+                'email' => 'KepriEscapes@gmail.com',
                 'password' => bcrypt('kepri2023'),
                 'role' => 0,
             ],
