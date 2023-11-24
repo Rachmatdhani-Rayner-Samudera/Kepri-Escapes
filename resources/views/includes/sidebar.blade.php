@@ -11,12 +11,6 @@
             </a>
             <ul id="dashnav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/">
                     <i class="bi bi-grid"></i>
                     <span>Home</span>
@@ -27,25 +21,25 @@
         </li>
         
 
-        <li class="nav-heading">Tour Guide</li>
+        <li class="nav-heading">User Data</li>
         <li class="nav-item">
             <li class="nav-item">
             <a class="nav-link collapsed" {{ Request::is('dashboard/post*') ? 'active' : ''}} data-bs-target="#guidenav" data-bs-toggle="collapse">
                 <i class="bi bi-layout-text-window-reverse"></i>
-                <span>Tour Guide</span>
+                <span>User Data</span>
                 <i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="guidenav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/dashboard/user">
                     <i class="bi bi-grid"></i>
-                    <span>Tour Guide</span>
+                    <span>User Account</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="/dashboard/transaction">
                     <i class="bi bi-grid"></i>
-                    <span>Tour Guide Data</span>
+                    <span>Transaction History</span>
                 </a>
             </li>
             </ul>

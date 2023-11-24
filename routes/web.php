@@ -11,7 +11,9 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
 use App\Models\Category;
 use App\Models\CategoryD;
-use App\Http\Controllers\OrderController;   
+use App\Models\Order;
+use App\Http\Controllers\OrderController;  
+use App\Http\Controllers\UserController;  
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,7 @@ Route::get('/contact', [HomeController::class, 'contact']);
 // <--------- Single Post Route ---------->
 Route::get('/blog/{post:slug}', [BlogController::class, 'show' ]);
 Route::get('/destination/{destination:slug}', [DestinationController::class, 'show' ]);
+
 Route::get('/blog/postcategories/{category:slug}', function(Category $category, CategoryD $destcategory){
     $destcategory = categoryD::all();
     return view('posts/categoryp/show', [
@@ -77,12 +80,15 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register-proses', [LoginController::class, 'register_proses'])->name('register-proses');
 
-
-
+// <--------- ADMIN ROUTE ---------->
 Route::middleware(['auth', 'user-role:admin'])->group(function () {
     Route::get('/dashboard', function () {
-        return view('includes.master');
+        $order = Order::all();
+        return view('order.transaction' ,compact('order'));
     })->name('dashboard');
+
+// <--------- Transaction Route ---------->
+Route::get('/dashboard/transaction', [OrderController::class, 'transactiondata'])->name('dashboard');
 
     // <--------- Auto Slug Route ---------->
 Route::get('/dashboard/post/autoSlug', [PostController::class, 'autoSlug']);
@@ -97,9 +103,14 @@ Route::resource('/dashboard/destination',DestinationController::class);
 Route::resource('/dashboard/destcategory',CategoryDController::class);
 
 Route::resource('/dashboard/postcategory',CategoryController::class);
+
+// <--------- User Setting Route ---------->
+Route::resource('/dashboard/user',UserController::class);
 });
 
 // <--------- Midtrans Order Route ---------->
-
+Route::get('/order', [OrderController::class, 'index']);
 Route::post('/checkout', [OrderController::class, 'checkout']);
 Route::get('/invoice/{id}', [OrderController::class, 'invoice']);
+
+

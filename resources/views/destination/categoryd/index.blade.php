@@ -25,7 +25,7 @@
                           <div class="row justify-content-end">
                             <div class="col mt-3">
                                 <input type="text" class="form-control" id="searchInput"
-                                    placeholder="Search Post..." style="width: 300px;">
+                                    placeholder="Search Category..." style="width: 300px;">
                             </div>
                               <div class="col-auto">
                                   <button class="btn btn-success m-3" data-bs-toggle="modal"

@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Post Page</title>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+  <title>Detail Package Page</title>
 
 
    {{-- Link to CSS --}}
@@ -20,46 +22,54 @@
 </head>
 <body>
   {{-- header --}}
-  @auth
-  @include('includes.loginheader')
-      @else
-      @include('includes.header')
-  @endauth
+  @include('includes.header')
 
-  @php
-  $picture = str_replace('public', 'storage', $detail->post_picture);
-  @endphp
+  {{-- @php
+  $picture = str_replace('public', 'storage', $detail->package_picture);
+  @endphp --}}
   {{-- Posts Content --}}
   <section class="post-header">
     <div class="header-content post-container">
-      {{-- back to home --}}
-      <a href="/blog" class="back-home">Back to blog</a>
-      <a href="/blog/postcategories/{{$detail->Category->slug}}" class="logo"><span>{{$detail->Category->category_name }}</span></a>
-      {{-- title --}}
-      <h1 class="header-title">{{$detail->post_title}}</h1>
-      {{-- post picture --}}
-      <img src="{{ asset($picture) }}" alt="" class="header-img">
+    
+      <a href="/destination" class="back-home">Back to Destination</a>
+      <a href="/" class="logo"><span>category</span></a>
+      
+      <h1 class="header-title">package name</h1>
+    
+      <img src="{{ asset('assets/img/about.jpg') }}" alt="" class="header-img">
     </div>
     
   </section>
-
-  {{-- posts --}}
   <section class="post-content post-container">
-    {{-- <h2 class="sub-heading"></h2> --}}
+    {{-- <p class="post-text"> {!! $detail->package_content !!}</p> --}}
+
+    <h4 class="sub-title">Order Now!</h4>
     
-    <p class="post-text"> {!! $detail->post_content !!}</p>
+      <form action="/checkout" method="post">
+        @csrf
+        <div class="mb-6">
+          <label for="qty" class="form-label">How many tickets do you want to order?</label>
+          <input name="qty" type="number" class="form-control" id="qty" required>
+        </div>
+        <div class="mb-6">
+          <label for="name" class="form-label">Your name</label>
+          <input name="name" type="text" class="form-control" id="text" required>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="form-label">Email</label>
+          <input name="email" type="email" class="form-control" id="email" value="" required>
+        </div>
+        <div class="mb-6">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input name="phone" type="text" class="form-control" id="phone" required>
+        </div>
+        <div class="mb-6">
+        <button type="submit" class="btn btn-primary">Checkout</button>
+        </div>
+      </form>
+
   </section>
 
-  {{-- share --}}
-  {{-- <div class="share post-container">
-    <span class="share-title">Share this article</span>
-    <div class="social">
-      <a href="#"><i class="bx bxl-facebook"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-instagram"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-twitter"></i></box-icon></a>
-      <a href="#"><i class="bx bxl-linkedin"></i></box-icon></a>
-    </div>
-  </div> --}}
   {{-- Footer --}}
   @include('includes.footer')
   </div>
@@ -81,16 +91,3 @@
   <script src="{{asset('assets/js/blog.js')}}"></script>
 </body>
 </html>
-
-
-
-
-
-{{-- <article>
-  <h2>{{$detail->post_title}}</h2>
-  
-  <h5>{!! $detail->creator !!}</h5>
-  <h2>{!! $detail->post_content !!}</h2>
-</article>
-
-<a href="/blog">Back to Blog</a> --}}
