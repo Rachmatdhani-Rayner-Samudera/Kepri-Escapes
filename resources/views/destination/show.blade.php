@@ -20,7 +20,11 @@
 </head>
 <body>
   {{-- header --}}
-  @include('includes.header')
+  @auth
+  @include('includes.loginheader')
+      @else
+      @include('includes.header')
+  @endauth
 
   @php
   $picture = str_replace('public', 'storage', $detail->package_picture);
@@ -66,9 +70,10 @@
           <input name="phone" type="text" class="form-control" id="phone" required>
         </div>
           <input name="price" type="text" hidden class="form-control" value="{{ $detail->package_price }}" id="price" required>
+          <input name="package_name" type="text" hidden class="form-control" value="{{ $detail->package_name }}" id="package_name" required>
         
         <div class="mt-3">
-        <button type="submit" class="btn btn-primary">Checkout</button>
+        <button type="submit" class="btn btn-primary"  id="checkoutBtn" >Checkout</button>
         </div>
       </form>
   </section>
@@ -76,21 +81,41 @@
   {{-- Footer --}}
   @include('includes.footer')
   </div>
-    
-
-
-
-
-
-
-
-
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   {{-- JQuery --}}
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   {{-- link to JS --}}
   <script src="{{asset('assets/js/blog.js')}}"></script>
+  @auth
+  <script>
+   console.log('checkout');
+  </script>
+@else
+  <script>
+       $(document).ready(function() {  
+        function checkAuthentication() {
+            const isAuthenticated = $authen;
+            if (!isAuthenticated) {
+              Swal.fire({
+                  icon: 'info',
+                  title: 'Login Required',
+                  text: 'You must login to continue',
+                });
+                window.location.href = "/login";
+            } else {
+                console.log("Proses Checkout...");
+            }
+        }
+    
+        // Event handler untuk tombol Checkout
+        $("#checkoutBtn").on("click", function(event) {
+            event.preventDefault();
+            checkAuthentication();
+        });
+    });
+  </script>
+@endauth
+
+    
 </body>
 </html>

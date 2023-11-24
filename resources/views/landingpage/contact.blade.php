@@ -74,55 +74,11 @@
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="nav container">
-                <a href="/" class="logo">Kepri<span>Escapes</span></a>
-                <ul class="ul">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <div class="btn-group">
-                        <li>
-                            <a href="/destination">
-                                Destination
-                            </a>
-                            <a href="/destination" class="dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown"
-                                id="defaultDropdown" data-bs-auto-close="true" aria-expanded="false">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
-                                <li><a class="dropdown-item" value="tanjungpinang-city"
-                                        href="/destination/destcategories/tanjungpinang-city">Tanjungpinang City</a></li>
-                                <li><a class="dropdown-item" value="batam-city"
-                                        href="/destination/destcategories/batam-city">Batam City</a></li>
-                                <li><a class="dropdown-item" value="bintan-island"
-                                        href="/destination/destcategories/bintan-island">Bintan Island</a></li>
-                                <li><a class="dropdown-item" value="karimun-island"
-                                        href="/destination/destcategories/karimun-island">Karimun Island</a></li>
-                                <li><a class="dropdown-item" value="natuna-island"
-                                        href="/destination/destcategories/natuna-island">Natuna Island</a></li>
-                                <li><a class="dropdown-item" value="lingga-island"
-                                        href="/destination/destcategories/lingga-island">Lingga Island</a></li>
-                                <li><a class="dropdown-item" value="anambas-island"
-                                        href="/destination/destcategories/anambas-island">Anambas Island</a></li>
-                            </ul>
-                        </li>
-                    </div>
-                    <li><a href="/blog">Blog</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-                <div>
-                    <a href="/login" class="login">Login</a>
-                    <a href="/register" class="signup">Register</a>
-                </div>
-                <div class="menu-toggle">
-                    <input type="checkbox" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </nav>
-    </header>
+    @auth
+    @include('includes.loginheader')
+        @else
+        @include('includes.header')
+    @endauth
 
     <section class="home" id="home">
         <link rel="stylesheet" href="http://127.0.0.1:8000/assets/img/blog.jpg">
