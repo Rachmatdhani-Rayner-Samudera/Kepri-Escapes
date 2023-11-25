@@ -228,7 +228,7 @@
     {{-- home --}}
     <section class="home" id="home">
         <video id="background-video" autoplay loop muted playsinline>
-        <source src="/assets/vid/video_kepri.mp4" type="video/mp4">
+        <source src="{{asset('assets/vid/video_kepri.mp4')}}" type="video/mp4">
         </video>
         <div class="overlay"></div>
         <div class="home-text container">
@@ -237,11 +237,11 @@
         </div>
     </section>
 
-    <section class="about" id="about" style="background: url('http://127.0.0.1:8000/assets/img/about-background.jpg') no-repeat center center fixed; background-size: cover;">
+    <section class="about" id="about" style="background: url{{asset('assets/img/about-background.jpg')}} no-repeat center center fixed; background-size: cover;">
         <div class="row">
         <div class="col">
             <div class="image">
-            <img src="http://127.0.0.1:8000/assets/img/about2.jpg" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
+            <img src="{{asset('assets/img/about2.jpg')}}" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
             </div>
         </div>
         <div class="col">
@@ -265,10 +265,10 @@
 
     <section class="post container animated animatedFadeInUp fadeInUp">
         <div class="post-box">
-        <img src="http://127.0.0.1:8000/assets/img/bintan-lagoi-bay.jpg" alt="" class="post-img" style="display: block">
+        <img src="{{asset('assets/img/bintan-lagoi-bay.jpg')}}" alt="" class="post-img" style="display: block">
         <div class="selain">
     <div class="profile">
-    <img src="http://127.0.0.1:8000/assets/img/location.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/location.png')}}" alt="" class="icon-img">
     <h2 class="category"><a href="/destination/destcategories/bintan-island" class="text-decoration-none"> Bintan Island</a></h2>
     </div>
     <div class="row">
@@ -278,7 +278,7 @@
     </a>
 
     <div class="profile mt-3">
-    <img src="http://127.0.0.1:8000/assets/img/clock.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/clock.png')}}" alt="" class="icon-img">
     <span class="profile-name">1 Day 1 Night</span>
     </div>
     </div>
@@ -294,11 +294,11 @@
     </div>
     <div class="row">
     <div class="col-8 rating mt-4">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
     <span class="review">(1660 Review)</span>
     </div>
 
@@ -314,10 +314,10 @@
 
 
         <div class="post-box">
-        <img src="http://127.0.0.1:8000/assets/img/batam-city.jpg" alt="" class="post-img" style="display: block">
+        <img src="{{asset('assets/img/batam-city.jpg')}}" alt="" class="post-img" style="display: block">
         <div class="selain">
     <div class="profile">
-    <img src="http://127.0.0.1:8000/assets/img/location.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/location.png')}}" alt="" class="icon-img">
     <h2 class="category"><a href="/destination/destcategories/batam-city" class="text-decoration-none"> Batam City</a></h2>
     </div>
     <div class="row">
@@ -327,7 +327,7 @@
     </a>
 
     <div class="profile mt-3">
-    <img src="http://127.0.0.1:8000/assets/img/clock.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/clock.png')}}" alt="" class="icon-img">
     <span class="profile-name">1 Day</span>
     </div>
     </div>
@@ -343,11 +343,11 @@
     </div>
     <div class="row">
     <div class="col-8 rating mt-4">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
     <span class="review">(214 Review)</span>
     </div>
 
@@ -363,10 +363,10 @@
 
 
         <div class="post-box">
-        <img src="http://127.0.0.1:8000/assets/img/penyengat.jpg" alt="" class="post-img" style="display: block">
+        <img src="{{asset('assets/img/penyengat.jpg')}}" alt="" class="post-img" style="display: block">
         <div class="selain">
     <div class="profile">
-    <img src="http://127.0.0.1:8000/assets/img/location.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/location.png')}}" alt="" class="icon-img">
     <h2 class="category"><a href="/destination/destcategories/tanjungpinang-city" class="text-decoration-none"> Tanjungpinang City</a></h2>
     </div>
     <div class="row">
@@ -376,7 +376,7 @@
     </a>
 
     <div class="profile mt-3">
-    <img src="http://127.0.0.1:8000/assets/img/clock.png" alt="" class="icon-img">
+    <img src="{{asset('assets/img/clock.png')}}" alt="" class="icon-img">
     <span class="profile-name">1 Day</span>
     </div>
     </div>
@@ -392,11 +392,11 @@
     </div>
     <div class="row">
     <div class="col-8 rating mt-4">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
-    <img src="http://127.0.0.1:8000/assets/img/star.png" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
+    <img src="{{asset('assets/img/star.png')}}" alt="" class="star">
     <span class="review">(705 Review)</span>
     </div>
 
@@ -417,7 +417,7 @@
     <section class="post container animated animatedFadeInUp fadeInUp">
 
         <div class="post-box">
-              <img src="http://127.0.0.1:8000/assets/img/kelenteng-senggarang.jpg" alt="" class="post-img">
+              <img src="{{asset('assets/img/kelenteng-senggarang.jpg')}}" alt="" class="post-img">
             <h2 class="category"><a href="/blog/postcategories/trending" class="text-decoration-none"> Trending</a></h2>
       <a href="/blog/11-tour-destination-in-riau-islands-one-of-them-features-thousands-of-statues" class="post-title">
         11 Tour Destination in Riau Islands, One of them Features Thousands of Statues
@@ -426,13 +426,13 @@
       <p class="post-description"></p><div>Lorem ipsum dolor sit amet, consectetur adipi...<p></p>
 
       <div class="profile">
-        <img src="http://127.0.0.1:8000/assets/img/profile-img.jpg" alt="" class="profile-img">
+        <img src="{{asset('assets/img/profile-img.jpg')}}" alt="" class="profile-img">
         <span class="profile-name">Kepri Escapes</span>
       </div>
     </div>
     </div>
         <div class="post-box">
-              <img src="http://127.0.0.1:8000/assets/img/tips.jpg" alt="" class="post-img">
+              <img src="{{asset('assets/img/tips.jpg')}}" alt="" class="post-img">
             <h2 class="category"><a href="/blog/postcategories/tour-tips" class="text-decoration-none"> Tour Tips</a></h2>
       <a href="/blog/5-frugal-traveling-tips-that-we-must-apply-when-on-vacation" class="post-title">
         5 Frugal Traveling Tips That We Must Apply When On Vacation
@@ -441,13 +441,13 @@
       <p class="post-description"></p><div>Lorem ipsum dolor sit amet, consectetur adipi...<p></p>
 
       <div class="profile">
-        <img src="http://127.0.0.1:8000/assets/img/profile-img.jpg" alt="" class="profile-img">
+        <img src="{{asset('assets/img/profile-img.jpg')}}" alt="" class="profile-img">
         <span class="profile-name">Kepri Escapes</span>
       </div>
     </div>
     </div>
         <div class="post-box">
-              <img src="http://127.0.0.1:8000/assets/img/pulau-ranoh.jpg" alt="" class="post-img">
+              <img src="{{asset('assets/img/pulau-ranoh.jpg')}}" alt="" class="post-img">
             <h2 class="category"><a href="/blog/postcategories/destination-info" class="text-decoration-none"> Destination Info</a></h2>
       <a href="/blog/7-tourist-destinations-in-the-riau-islands-that-make-you-feel-at-home" class="post-title">
         7 Tourist Destinations in The Riau Islands That Make You Feel At Home
@@ -456,7 +456,7 @@
       <p class="post-description"></p><div>Lorem ipsum dolor sit amet, consectetur adipi...<p></p>
 
       <div class="profile">
-        <img src="http://127.0.0.1:8000/assets/img/profile-img.jpg" alt="" class="profile-img">
+        <img src="{{asset('assets/img/profile-img.jpg')}}" alt="" class="profile-img">
         <span class="profile-name">Kepri Escapes</span>
       </div>
     </div>
@@ -474,7 +474,7 @@
             </div>
             <h3 class="subsub"> Contact Us To Get <br>More Info</h3>
             <div class="image">
-                <img src="http://127.0.0.1:8000/assets/img/about2.jpg" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
+                <img src="{{asset('assets/img/about2.jpg')}}" alt="" class="img-shadow-left animated animatedFadeInLeft fadeInLeft">
             </div>
         </div>
         <div class="col">
