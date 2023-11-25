@@ -71,6 +71,21 @@
 
         }
 
+
+        .icon-background,
+        .bi-envelope-at-fill {
+            padding: 5px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px; /* Tambahkan margin-right agar ikon terpisah */
+        }
+
+        .icon-color {
+            color: #4582e8;
+            font-size: 1.5em;
+        }
+
+
         .content {
         text-align: center;
         }
@@ -245,6 +260,7 @@
 
     <h1 style="text-align: center">Populer Packages</h1>
     <p style="text-align: center">Select your packages</p>
+    <p style="text-align: center">here we have several packages available you just need to choose it</p>
 
 
     <section class="post container animated animatedFadeInUp fadeInUp">
