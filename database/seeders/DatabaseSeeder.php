@@ -152,8 +152,18 @@ class DatabaseSeeder extends Seeder
             'time' => '1 Day',
             'package_content' => '<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget luctus orci. Nullam ullamcorper, neque quis ultricies fermentum, sem risus rutrum massa, eu vehicula dui ligula eu dui. In hac habitasse platea dictumst. Nullam tempor magna neque, id lobortis orci congue et. Suspendisse dapibus fermentum lorem. Praesent a sapien ut leo accumsan hendrerit sit amet ac turpis. Vivamus nibh erat, elementum at leo non, aliquam tincidunt metus. Cras at tincidunt tellus. Nullam ultrices posuere cursus. Vestibulum pellentesque sagittis congue. Sed eu dui lorem. Vivamus sed eros pulvinar tortor maximus aliquet. Vivamus sodales massa ac eros mollis ullamcorper et nec erat. Sed mollis nisl ac mauris finibus faucibus. Mauris tempor quam vitae vulputate aliquet.</div>
                                <div>Donec malesuada dapibus ex, vel faucibus diam accumsan in. Pellentesque porttitor metus et lorem ullamcorper ultricies. Suspendisse potenti. Suspendisse interdum justo sit amet sapien faucibus tincidunt. Vestibulum consectetur ornare enim. Proin efficitur sapien at mi porta, sed condimentum nisl vehicula. Aliquam erat volutpat. Donec fringilla ut libero hendrerit viverra. Fusce arcu nisi, elementum ut tellus id, cursus ornare magna. Nulla volutpat nunc nulla</div>',
-            'slug' => 'one-day-tour-lagoi-bay',
+            'slug' => 'one-day-tour-penyengat-island',
             'package_picture' => 'assets/img/penyengat.jpg'
+        ]);
+        Destination::create([
+            'package_name' => 'One Day Tour Karimun Island',
+            'category_d_id' => '4',
+            'package_price' => '1',
+            'time' => '1 Day',
+            'package_content' => '<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget luctus orci. Nullam ullamcorper, neque quis ultricies fermentum, sem risus rutrum massa, eu vehicula dui ligula eu dui. In hac habitasse platea dictumst. Nullam tempor magna neque, id lobortis orci congue et. Suspendisse dapibus fermentum lorem. Praesent a sapien ut leo accumsan hendrerit sit amet ac turpis. Vivamus nibh erat, elementum at leo non, aliquam tincidunt metus. Cras at tincidunt tellus. Nullam ultrices posuere cursus. Vestibulum pellentesque sagittis congue. Sed eu dui lorem. Vivamus sed eros pulvinar tortor maximus aliquet. Vivamus sodales massa ac eros mollis ullamcorper et nec erat. Sed mollis nisl ac mauris finibus faucibus. Mauris tempor quam vitae vulputate aliquet.</div>
+                               <div>Donec malesuada dapibus ex, vel faucibus diam accumsan in. Pellentesque porttitor metus et lorem ullamcorper ultricies. Suspendisse potenti. Suspendisse interdum justo sit amet sapien faucibus tincidunt. Vestibulum consectetur ornare enim. Proin efficitur sapien at mi porta, sed condimentum nisl vehicula. Aliquam erat volutpat. Donec fringilla ut libero hendrerit viverra. Fusce arcu nisi, elementum ut tellus id, cursus ornare magna. Nulla volutpat nunc nulla</div>',
+            'slug' => 'one-day-tour-karimun-island',
+            'package_picture' => 'assets/img/about.jpg'
         ]);
     }
 }

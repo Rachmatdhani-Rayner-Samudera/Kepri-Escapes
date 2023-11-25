@@ -105,7 +105,7 @@
             <div class="col">
                 <div class="content animated animatedFadeInRight fadeInRight">
                     <h3> Kepri Escapes, Your Favorite Tour Provider</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus consequatur eos dolore? Voluptas quisquam iure nihil praesentium eaque reprehenderit temporibus?</p>
+                    <p>Embark on your dream getaway with Kepri Escapes – your gateway to unparalleled travel experiences in the enchanting Kepulauan Riau region. Whether you have questions about our captivating tour packages, need assistance in planning your itinerary, or simply want to share your excitement, our team is here for you.</p>
                     <div class="line"></div>
                     <span class="icon-background">
                         <i class="bi bi-geo-alt-fill icon-color"></i>
